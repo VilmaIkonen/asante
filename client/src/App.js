@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
+import { Container, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { getPosts } from './actions/postActions'
 
 import Posts from './Components/Posts/Posts';
 import Form from './Components/Form/Form';
 import useStyles from './stylesApp'
+import NavBar from './Components/NavBar/NavBar';
 
 const App = () => {
 
@@ -26,13 +27,9 @@ const App = () => {
 
   return (
     <Container maxwidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h1" align="center">Asante</Typography>
-        <Typography className={classes.heading2} variant="h2" align="center">Thank your colleague for a job well done!</Typography>
-       </AppBar>
+    <NavBar/>
       <Grow in>
-        <Container>
-          
+        <Container>          
           <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing="3">
             <Grid item xs={12} sm={7}>
               <Posts setCurrentId={setCurrentId}/>
