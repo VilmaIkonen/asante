@@ -1,20 +1,20 @@
 import React, {useState} from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import LockOutLinedIcon from '@material-ui/icons/LockOutlined';
-import { GoogleLogin } from 'react-google-login';
-import dotenv from 'dotenv';
+import GoogleLogin from 'react-google-login';
+import {useDispatch} from 'react-redux';
 
 import Input from './Input';
 import Icon from './icon'
 import useStyles from './stylesAuth';
-
-dotenv.config();
 
 const Auth = () => {
 
   const classes = useStyles();
   const [isSignedUp, setIsSignedUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch();
+
   
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); // previous state needed to toggle between states
 
@@ -31,8 +31,16 @@ const Auth = () => {
     handleShowPassword(false);
   }
 
-  const googleSuccess = (res) => {
-    console.log(res)
+  const googleSuccess = async (res) => {
+    const result = res?.profileObj;  // optional chaining: returns undefined if res is null/undefined. Prevents producing long error messages
+    const token = res?.tokenId;
+
+    try {
+      dispatch({type: 'AUTH', data: {result, token}}) //dispatch action: AUTH and send payload in:result+token
+    } 
+    catch (err) {
+      console.log(err)
+    }
   }
 
   const googleFailure = () => {
@@ -60,11 +68,15 @@ const Auth = () => {
             <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
             {isSignedUp && <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password'/>}
           </Grid> 
+          <Button type='submit' fullWidth variant='contained' className={classes.submit}>
+            {isSignedUp ? 'Sign up' : 'Sign in'}
+          </Button> 
           <GoogleLogin 
-            clientId={process.env.GOOGLE_ID}
+            clientId='GOOGLE_ID'
             render={(renderProps) => (
               <Button 
-                className={classes.googleButton} 
+                className={classes.googleButton}
+                color='primary' 
                 fullWidth 
                 onClick={renderProps.onClick} 
                 disabled={renderProps.disabled} 
@@ -77,10 +89,7 @@ const Auth = () => {
             onSuccess={googleSuccess}
             onFailure={googleFailure}
             cookiePolicy='single_host_origin'
-          />
-          <Button type='submit' fullWidth variant='contained' className={classes.submit}>
-            {isSignedUp ? 'Sign up' : 'Sign in'}
-          </Button> 
+          /> 
           <Grid container justify='flex-end'>
             <Grid type='item'>
               <Button onClick={switchMode}>
