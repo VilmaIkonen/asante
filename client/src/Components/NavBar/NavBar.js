@@ -10,6 +10,13 @@ const NavBar = () => {
 
   // setting user with the info from authReducer ('profile'), fetching the actual user info from local storage
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+
+  // re-navigating automatically to main page after login
+  useEffect(() => {
+    const token = user?.token;
+    //later with json webtoken
+    setUser(JSON.parse(localStorage.getItem('profile')));
+  }, [])
  
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">

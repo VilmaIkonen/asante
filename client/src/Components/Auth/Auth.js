@@ -3,6 +3,7 @@ import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui
 import LockOutLinedIcon from '@material-ui/icons/LockOutlined';
 import GoogleLogin from 'react-google-login';
 import {useDispatch} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 import Input from './Input';
 import Icon from './icon'
@@ -15,6 +16,7 @@ const Auth = () => {
   const [isSignedUp, setIsSignedUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); // previous state needed to toggle between states
@@ -38,6 +40,8 @@ const Auth = () => {
 
     try {
       dispatch({type: AUTH, data: {result, token}}) //dispatch action: AUTH and send payload in:result+token
+      // after dispatch, re-direct back to Home
+      history.push('/')
     } 
     catch (err) {
       console.log(err)
