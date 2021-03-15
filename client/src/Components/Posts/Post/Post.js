@@ -14,7 +14,7 @@ const Post = ({post, setCurrentId}) => {
   const dispatch = useDispatch();
 
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} elevation={5}>
       <CardMedia className={classes.media} image={post.selectedFile} recipient={post.recipient} />
       <div className={classes.overlay}>
         <Typography className={classes.creatorCreatedEdit} variant="h6">From: {post.creator}</Typography>

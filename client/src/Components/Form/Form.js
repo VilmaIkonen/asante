@@ -49,7 +49,7 @@ const Form = ({currentId, setCurrentId}) => {
   }
 
   return (
-    <Paper className={classes.paper}>
+    <Paper className={classes.paper} elevation={5}>
     {/* classes.root/classes.form --> Multiple templates w template string to get styling from MUI to both root and form (see styles.css) */}
       <form autoComplete='off' className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}> 
         <Typography className={classes.heading} variant='h6'>{currentId ? 'Edit the' : 'Create a'} message</Typography>

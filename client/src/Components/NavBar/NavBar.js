@@ -13,7 +13,7 @@ const NavBar = () => {
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
     <div className={classes.brandContainer}>
-      <img className={classes.logo} src={logo}></img>
+      <img className={classes.logo} src={logo} alt='logo'></img>
       <Typography 
       // component={Link} to='/' 
       className={classes.heading} variant="h1" align="center">Asante</Typography>      
