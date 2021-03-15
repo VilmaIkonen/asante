@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AppBar, Button, Toolbar, Typography, Avatar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import useStyles from './stylesNavBar'
@@ -8,14 +8,15 @@ const NavBar = () => {
 
   const classes = useStyles();
 
-  const user = null;
-
+  // setting user with the info from authReducer ('profile'), fetching the actual user info from local storage
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
+ 
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
     <div className={classes.brandContainer}>
       <img className={classes.logo} src={logo} alt='logo'></img>
       <Typography 
-      // component={Link} to='/' 
+      component={Link} to='/' 
       className={classes.heading} variant="h1" align="center">Asante</Typography>      
     </div>
       <Typography className={classes.heading2} variant="h2" align="center">Thank your or congratulate your colleague for a job well done!</Typography>

@@ -1,4 +1,5 @@
 import { makeStyles } from '@material-ui/core';
+import { deepPurple } from '@material-ui/core/colors';
 import { COLORS, FONTS } from '../../Constants/styleConstants';
 
 export default makeStyles((theme) => ({
@@ -30,5 +31,18 @@ export default makeStyles((theme) => ({
   },
   toolbar: {
     color: 'red'
+  },
+  userProfile: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width:'400px'
+  },
+  userName: {
+    display: 'flex',
+    alignItems: 'center'
+  },
+  avatar: {
+    color: theme.palette.getContrastText(deepPurple[500]),
+    backgroundColor: deepPurple[500]
   }
 }));

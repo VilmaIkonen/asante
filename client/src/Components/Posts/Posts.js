@@ -1,6 +1,5 @@
 import React from 'react';
 import { Grid, CircularProgress } from '@material-ui/core';
-
 // Fetching data from the global Redux store (selectors):
 import { useSelector } from 'react-redux';
 

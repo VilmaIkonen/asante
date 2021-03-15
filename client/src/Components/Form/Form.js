@@ -20,7 +20,6 @@ const Form = ({currentId, setCurrentId}) => {
 
   // Fetching data for the update of a post and Populate the values of the Form
   const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
-
   useEffect(() => {
     if(post) setPostData(post);
   }, [post])

@@ -7,6 +7,7 @@ import {useDispatch} from 'react-redux';
 import Input from './Input';
 import Icon from './icon'
 import useStyles from './stylesAuth';
+import {AUTH} from '../../Constants/actionTypes'
 
 const Auth = () => {
 
@@ -36,7 +37,7 @@ const Auth = () => {
     const token = res?.tokenId;
 
     try {
-      dispatch({type: 'AUTH', data: {result, token}}) //dispatch action: AUTH and send payload in:result+token
+      dispatch({type: AUTH, data: {result, token}}) //dispatch action: AUTH and send payload in:result+token
     } 
     catch (err) {
       console.log(err)
@@ -72,7 +73,7 @@ const Auth = () => {
             {isSignedUp ? 'Sign up' : 'Sign in'}
           </Button> 
           <GoogleLogin 
-            clientId='GOOGLE_ID'
+            clientId='231551948894-09054roflj5do8jevivd2dce0jlhqqmn.apps.googleusercontent.com'
             render={(renderProps) => (
               <Button 
                 className={classes.googleButton}
