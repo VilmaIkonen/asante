@@ -15,18 +15,21 @@ const Auth = () => {
   const classes = useStyles();
   const [isSignedUp, setIsSignedUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({firstname: '', lastname: '', email: '', password: '', confirmPassword: ''});
   const dispatch = useDispatch();
   const history = useHistory();
 
   
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); // previous state needed to toggle between states
 
-  const handleSubmit = () => {
-
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData)
   }
 
-  const handleChange = () => {
-
+  // used to get formData. Spread all other properties and change just the one being changed, input in specific name --> value
+  const handleChange = (event) => {
+    setFormData({...formData, [event.target.name]: event.target.value})
   }
 
   const switchMode = () => {
@@ -72,10 +75,10 @@ const Auth = () => {
             <Input name='email' label='Email address' handleChange={handleChange} type='email' />
             <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
             {isSignedUp && <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password'/>}
-          </Grid> 
+          </Grid>           
           <Button type='submit' fullWidth variant='contained' className={classes.submit}>
             {isSignedUp ? 'Sign up' : 'Sign in'}
-          </Button> 
+          </Button> {/* On click, button submits firm data (handleSubmit) */}
           <GoogleLogin 
             clientId='231551948894-09054roflj5do8jevivd2dce0jlhqqmn.apps.googleusercontent.com'
             render={(renderProps) => (
