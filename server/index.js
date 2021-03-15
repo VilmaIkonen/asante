@@ -19,7 +19,7 @@ app.use('/posts', postRoutes);
 
 // This should be seen when go to actual deployed version:
 app.get('/', (req, res) => {
-  res.send('Greetings from Hello My Friend API!')
+  res.send('Greetings from Asante API!')
 })
 
 // Connect server application with database (db will be hosted in MDB cloud) --> https://www.mongodb.com/cloud/atlas
