@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import postRoutes from './routes/postRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 // app initialization:
 const app = express();
@@ -14,8 +15,11 @@ app.use(bodyParser.json({limit:"30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit:"30mb", extended: true}));
 app.use(cors());
 
-// Express middleware to connect to app. (starting path for all the routes in posts.js). 
+// Express middleware to connect to app. 
+// starting path for all the routes in posts.js
 app.use('/posts', postRoutes);
+// endpoint 'user, with routes specified in:
+app.use('/user', userRoutes);
 
 // This should be seen when go to actual deployed version:
 app.get('/', (req, res) => {
