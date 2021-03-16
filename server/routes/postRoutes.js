@@ -17,7 +17,7 @@ router.post('/', auth, createPost);
 router.patch('/:id', auth, updatePost);
 
 // Like (similar to updating. Here the no. of likes is updated):
-router.patch('/:id/likePost', auth, likePost);
+router.patch('/:id/likePost', auth, likePost); // as auth is called before likePost. likePost has access to auth and req.userId
 
 // For deleting a post:
 router.delete('/:id', auth, deletePost)

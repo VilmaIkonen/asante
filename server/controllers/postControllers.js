@@ -4,7 +4,7 @@
 import mongoose from 'mongoose';
 import PostMessage from '../models/postSchema.js'
 
-// Getting all posts currently in db, takes time --> 'async', 'await'
+// Getting all posts currently in db
 export const getPosts =  async (req, res) => {
   try {
     const postMessages = await PostMessage.find(); 
@@ -37,30 +37,39 @@ export const updatePost = async (req, res) => {
   if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send(`No post found with id ${id}.`);
 
   const updatedPost = await PostMessage.findByIdAndUpdate(_id, {...post, _id}, {new: true}); // spread old post and add the id property
-
   res.json(updatedPost);
 }
 
 // Like
 export const likePost = async (req, res) => {
   const {id} = req.params;
+
+  // controlling if user is authenticated:
+  if(!req.userId) return res.json({message: 'Unauthenticated'}); // likePost has access to auth and req.userId as as auth is called before likePost postRoutes.js
+  // check if post exists and get it:
   if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post found with id ${id}.`);
-
   const post = await PostMessage.findById(id);
-  const updatedPost = await PostMessage.findByIdAndUpdate(id, {likeCount: post.likeCount + 1}, {new: true});
 
+  // check if user's id is already in the like section --> prevent multiple likes (loop through all likes):
+  const index = post.likes.findIndex((id) => {id === String(req.userId)});
+  // if users id is not in likes, index =-1
+  if(index === -1) {
+    // like:
+    post.likes.push(req.userId);
+  } 
+  else {
+    // dislike:
+    post.likes = post.likes.filter((id) => id !== String(req.userI)) // returns array of all likes except current person's like
+  }
+  const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {new: true});
   res.json(updatedPost);
 }
 
 // Delete post
 export const deletePost = async (req, res) => {
   const {id} = req.params;
-
   if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post found with id ${id}.`);
-
   await PostMessage.findByIdAndRemove(id);
-
   res.json({message: 'Post deleted succesfully'})
-
 }
 
