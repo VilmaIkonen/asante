@@ -4,7 +4,7 @@ import LockOutLinedIcon from '@material-ui/icons/LockOutlined';
 import GoogleLogin from 'react-google-login';
 import {useDispatch} from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import { signup, signin } from '../../actions/authActions'
 import Input from './Input';
 import Icon from './icon'
 import useStyles from './stylesAuth';
@@ -13,7 +13,7 @@ import {AUTH} from '../../Constants/actionTypes'
 const Auth = () => {
 
   const classes = useStyles();
-  const [isSignedUp, setIsSignedUp] = useState(false);
+  const [isSignUp, setIsSignUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({firstname: '', lastname: '', email: '', password: '', confirmPassword: ''});
   const dispatch = useDispatch();
@@ -24,7 +24,12 @@ const Auth = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData)
+    if(isSignUp) {
+      dispatch(signup(formData, history)) //action = signup. formData and 
+    }
+    else {
+      dispatch(signin(formData, history))
+    }
   }
 
   // used to get formData. Spread all other properties and change just the one being changed, input in specific name --> value
@@ -33,7 +38,7 @@ const Auth = () => {
   }
 
   const switchMode = () => {
-    setIsSignedUp((prevIsSignedUp) => !prevIsSignedUp);
+    setIsSignUp((prevIsSignUp) => !prevIsSignUp);
     handleShowPassword(false);
   }
 
@@ -61,23 +66,21 @@ const Auth = () => {
         <Avatar className={classes.avatar}>
           <LockOutLinedIcon />
         </Avatar>
-        <Typography variant='h5'>{isSignedUp ? 'Sign up' : 'Sign in'}</Typography>
+        <Typography variant='h5'>{isSignUp ? 'Sign up' : 'Sign in'}</Typography>
         <form classname={classes.form} onSubmit={handleSubmit}>  
           <Grid>
-            {isSignedUp && (
+            {isSignUp && (
               <>
-                <Input name='firstname' label='First name' handleChange={handleChange} 
-                // autoFocus 
-                half />
-                <Input name='lastname' label='Last name' handleChange={handleChange} half />
+                <Input name='firstname' label='First name' handleChange={handleChange} fullWidth autoFocus half />
+                <Input name='lastname' label='Last name' handleChange={handleChange} fullWidth half />
               </>
             )} 
             <Input name='email' label='Email address' handleChange={handleChange} type='email' />
             <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
-            {isSignedUp && <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password'/>}
+            {isSignUp ? <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password'/> : null}
           </Grid>           
           <Button type='submit' fullWidth variant='contained' className={classes.submit}>
-            {isSignedUp ? 'Sign up' : 'Sign in'}
+            {isSignUp ? 'Sign up' : 'Sign in'}
           </Button> {/* On click, button submits firm data (handleSubmit) */}
           <GoogleLogin 
             clientId='231551948894-09054roflj5do8jevivd2dce0jlhqqmn.apps.googleusercontent.com'
@@ -101,7 +104,7 @@ const Auth = () => {
           <Grid container justify='flex-end'>
             <Grid type='item'>
               <Button onClick={switchMode}>
-                {isSignedUp ? 'Already have an account? Sign in!' : "Don't have an account yet? Sign up!" }
+                {isSignUp ? 'Already have an account? Sign in!' : "Don't have an account yet? Sign up!" }
               </Button>
             </Grid>
           </Grid>  
