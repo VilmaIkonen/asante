@@ -2,30 +2,32 @@ import React, {useState} from 'react';
 import { Avatar, Button, Paper, Grid, Typography, Container } from '@material-ui/core';
 import LockOutLinedIcon from '@material-ui/icons/LockOutlined';
 import GoogleLogin from 'react-google-login';
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+
 import { signup, signin } from '../../actions/authActions'
 import Input from './Input';
 import Icon from './icon'
 import useStyles from './stylesAuth';
 import {AUTH} from '../../Constants/actionTypes'
 
+const formInitialState = {firstname: '', lastname: '', email: '', password: '', confirmPassword: ''};
+
 const Auth = () => {
 
   const classes = useStyles();
   const [isSignUp, setIsSignUp] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [formData, setFormData] = useState({firstname: '', lastname: '', email: '', password: '', confirmPassword: ''});
+  const [formData, setFormData] = useState(formInitialState);
   const dispatch = useDispatch();
   const history = useHistory();
-
   
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); // previous state needed to toggle between states
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if(isSignUp) {
-      dispatch(signup(formData, history)) //action = signup. formData and 
+      dispatch(signup(formData, history)) //action = signup. formData and history send with it
     }
     else {
       dispatch(signin(formData, history))
@@ -38,8 +40,9 @@ const Auth = () => {
   }
 
   const switchMode = () => {
+    setFormData(formInitialState);
     setIsSignUp((prevIsSignUp) => !prevIsSignUp);
-    handleShowPassword(false);
+    setShowPassword(false);
   }
 
   const googleSuccess = async (res) => {
@@ -67,8 +70,8 @@ const Auth = () => {
           <LockOutLinedIcon />
         </Avatar>
         <Typography variant='h5'>{isSignUp ? 'Sign up' : 'Sign in'}</Typography>
-        <form classname={classes.form} onSubmit={handleSubmit}>  
-          <Grid>
+        <form className={classes.form} onSubmit={handleSubmit}>  
+          <Grid container spacing={2}>
             {isSignUp && (
               <>
                 <Input name='firstname' label='First name' handleChange={handleChange} fullWidth autoFocus half />
@@ -77,7 +80,7 @@ const Auth = () => {
             )} 
             <Input name='email' label='Email address' handleChange={handleChange} type='email' />
             <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
-            {isSignUp ? <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password'/> : null}
+            {isSignUp ? <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password' /> : null}
           </Grid>           
           <Button type='submit' fullWidth variant='contained' className={classes.submit}>
             {isSignUp ? 'Sign up' : 'Sign in'}

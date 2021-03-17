@@ -32,17 +32,14 @@ export const signin = async(req, res) => {
 }
 
 export const signup = async(req, res) => {
-  const {email, password, confirmedPassword, firstname, lastname} = req.body;
+  const {email, password, firstname, lastname} = req.body;
 
   try {
     // first need to check if user already exists in db
     const existingUser = await userSchema.findOne({email});
-    if(existingUser) res.status(400).json({message: 'User already exists.'});
+    if(existingUser) return res.status(400).json({message: 'User already exists.'});
 
-    // do passwords match?
-    if(password !== confirmedPassword) res.status(400).json({message: 'Passwords do not match.'});
-
-    // if user does not exist already and the passwords match, create user:
+    // if user does not exist already create one:
     // 1st: hash the pswd, hash and add salt of length 12:
     const hashedPassword = await bcrypt.hash(password, 12);
     // create user:
