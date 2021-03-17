@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './stylesForm';
 import { createPost, updatePost } from '../../actions/postActions';
 
-const postInitialState = {creator: '', recipient: '', message: '', selectedFile: ''};
+const postInitialState = {recipient: '', message: '', selectedFile: ''};
 
 const Form = ({currentId, setCurrentId}) => {
   
@@ -26,7 +26,7 @@ const Form = ({currentId, setCurrentId}) => {
     event.preventDefault();
 
     if(currentId === 0) {
-      dispatch(createPost({...postData, name: user?.result?.name}));
+      dispatch(createPost({...postData, name: user?.result?.name})); // info to backend which name to use (based on login)
       clear();
     }
     else {
@@ -39,11 +39,21 @@ const Form = ({currentId, setCurrentId}) => {
   const clear = () => {
     setCurrentId(0);
     setPostData({
-      creator: '',
       recipient: '',
       message: '',
       selectedFile: '' 
     })
+  }
+
+  // shown to user if not logged in:
+  if(!user?.result?.name)  {
+    return (
+      <Paper className={classes.paper}>
+        <Typography variant='h6' align='center'>
+          If you want to create or like a post, please sign in.
+        </Typography>
+      </Paper>
+    )
   }
 
   return (
@@ -51,16 +61,6 @@ const Form = ({currentId, setCurrentId}) => {
     {/* classes.root/classes.form --> Multiple templates w template string to get styling from MUI to both root and form (see styles.css) */}
       <form autoComplete='off' className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}> 
         <Typography className={classes.heading} variant='h6'>{currentId ? 'Edit the' : 'Create a'} message</Typography>
-        <TextField 
-          required
-          name='creator' 
-          variant='outlined' 
-          label='From' 
-          fullWidth 
-          value={postData.creator} 
-          onChange={(e) => setPostData({...postData, creator: e.target.value})} 
-        /> 
-          {/* 'spread + creator: Keep other data, change only a specific property of text field' */}       
         <TextField 
           required
           name='recipient' 
