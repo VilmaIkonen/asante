@@ -6,39 +6,38 @@ import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './stylesForm';
 import { createPost, updatePost } from '../../actions/postActions';
 
+const postInitialState = {creator: '', recipient: '', message: '', selectedFile: ''};
+
 const Form = ({currentId, setCurrentId}) => {
   
-  const [ postData, setPostData ] = useState({
-    creator: '',
-    recipient: '',
-    message: '',
-    selectedFile: ''    
-  })
-
+  const [ postData, setPostData ] = useState(postInitialState);
   const classes = useStyles();
-  const dispatch = useDispatch(); // allows dipatch of actions
-
+  const dispatch = useDispatch();
   // Fetching data for the update of a post and Populate the values of the Form
-  const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+  const post = useSelector((state) => currentId ? state.posts.find((message) => message._id === currentId) : null);
+  const user = JSON.parse(localStorage.getItem('profile'));
+
   useEffect(() => {
     if(post) setPostData(post);
   }, [post])
    
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if(currentId) {
-      dispatch(updatePost(currentId, postData));
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if(currentId === 0) {
+      dispatch(createPost({...postData, name: user?.result?.name}));
+      clear();
     }
     else {
-      dispatch(createPost(postData));
+      dispatch(updatePost(currentId, {...postData, name: user?.result?.name}));
     }   
     clear(); 
   }
 
   // Clear the form after editing and posting
   const clear = () => {
-    setCurrentId(null);
+    setCurrentId(0);
     setPostData({
       creator: '',
       recipient: '',
