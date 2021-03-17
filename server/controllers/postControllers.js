@@ -17,7 +17,7 @@ export const getPosts =  async (req, res) => {
 
 export const createPost = async (req, res) => {
   const post = req.body;
-  const newPost = new PostMessage(post);
+  const newPost = new PostMessage({...post, creator: req.userId, createdAt: new Date().toISOString()}); // set creator automatically based on login
   try {
     await newPost.save();
     res.status(201). json(newPost);
@@ -34,7 +34,9 @@ export const updatePost = async (req, res) => {
   const {id: _id} = req.params;
   const post = req.body
 
-  if(!mongoose.Types.ObjectId.isValid(_id)) return res.status(404).send(`No post found with id ${id}.`);
+  if(!mongoose.Types.ObjectId.isValid(_id)) {
+    return res.status(404).send(`No post found with id ${id}.`)
+  };
 
   const updatedPost = await PostMessage.findByIdAndUpdate(_id, {...post, _id}, {new: true}); // spread old post and add the id property
   res.json(updatedPost);
@@ -45,13 +47,19 @@ export const likePost = async (req, res) => {
   const {id} = req.params;
 
   // controlling if user is authenticated:
-  if(!req.userId) return res.json({message: 'Unauthenticated'}); // likePost has access to auth and req.userId as as auth is called before likePost postRoutes.js
+  if(!req.userId) {
+    return res.json({message: 'Unauthenticated'}); // likePost has access to auth and req.userId as auth is called before likePost postRoutes.js
+  } 
+
   // check if post exists and get it:
-  if(!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post found with id ${id}.`);
+  if(!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(404).send(`No post found with id ${id}.`);
+  }
+  
   const post = await PostMessage.findById(id);
 
   // check if user's id is already in the like section --> prevent multiple likes (loop through all likes):
-  const index = post.likes.findIndex((id) => {id === String(req.userId)});
+  const index = post.likes.findIndex((id) => id === String(req.userId));
   // if users id is not in likes, index =-1
   if(index === -1) {
     // like:
@@ -59,10 +67,10 @@ export const likePost = async (req, res) => {
   } 
   else {
     // dislike:
-    post.likes = post.likes.filter((id) => id !== String(req.userI)) // returns array of all likes except current person's like
+    post.likes = post.likes.filter((id) => id !== String(req.userId)) // returns array of all likes except current person's like
   }
   const updatedPost = await PostMessage.findByIdAndUpdate(id, post, {new: true});
-  res.json(updatedPost);
+  res.status(200).json(updatedPost);
 }
 
 // Delete post
