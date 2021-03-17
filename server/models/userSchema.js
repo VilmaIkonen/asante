@@ -7,4 +7,4 @@ const userSchema = mongoose.Schema({
   id: {type: String}
 });
 
-export default mongoose.model('User', userSchema) // export name for the modela and the schema it follows
+export default mongoose.model('User', userSchema) // export name for the model and the schema it follows
