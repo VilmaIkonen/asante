@@ -46,12 +46,12 @@ export const signup = async(req, res) => {
     // 1st: hash the pswd, hash and add salt of length 12:
     const hashedPassword = await bcrypt.hash(password, 12);
     // create user:
-    const result = await User.create({email, password:hashedPassword, name: `${firstname} ${lastname}` });
+    const result = await User.create({email, password: hashedPassword, name: `${firstname} ${lastname}` });
     // create token:
     const token = jwt.sign({email: result.email, id: result._id}, 'test', {expiresIn: '1h'});
 
     // return user and token and send result:
-    res.status(200).json({result, token})
+    res.status(201).json({result, token})
   }
   catch(err) {
     // if user creation did not succeed:
