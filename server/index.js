@@ -15,10 +15,9 @@ app.use(bodyParser.json({limit:"30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit:"30mb", extended: true}));
 app.use(cors());
 
-// Express middleware to connect to app. 
-// starting path for all the routes in posts.js
+// endpoint 'posts', with routes specified in...:
 app.use('/posts', postRoutes);
-// endpoint 'user, with routes specified in:
+// endpoint 'user', with routes specified in...:
 app.use('/user', userRoutes);
 
 // This should be seen when go to actual deployed version:
