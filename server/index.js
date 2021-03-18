@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 
 import postRoutes from './routes/postRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 
 // app initialization:
 const app = express();
@@ -14,12 +15,14 @@ app.use(bodyParser.json({limit:"30mb", extended: true}));
 app.use(bodyParser.urlencoded({limit:"30mb", extended: true}));
 app.use(cors());
 
-// Express middleware to connect to app. (starting path for all the routes in posts.js). 
+// endpoint 'posts', with routes specified in...:
 app.use('/posts', postRoutes);
+// endpoint 'user', with routes specified in...:
+app.use('/user', userRoutes);
 
 // This should be seen when go to actual deployed version:
 app.get('/', (req, res) => {
-  res.send('Greetings from Hello My Friend API!')
+  res.send('Greetings from Asante API!')
 })
 
 // Connect server application with database (db will be hosted in MDB cloud) --> https://www.mongodb.com/cloud/atlas
@@ -36,7 +39,7 @@ mongoose.connect(CONNECTION_URL, {
     useUnifiedTopology: true
   })
   .then(() => app.listen(PORT, () => console.log(`Server running on port ${PORT}`)))
-  .catch((error) => console.log(error.message));
+  .catch((err) => console.log(err.message));
 
 // for avoiding warnings in console  
 mongoose.set('useFindAndModify', false);

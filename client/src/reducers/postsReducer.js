@@ -1,6 +1,6 @@
 import { FETCH_ALL, DELETE, CREATE, UPDATE, LIKE } from '../Constants/actionTypes'
 
-const reducer = (posts = [], action) => {
+const postsReducer = (posts = [], action) => {
   switch(action.type) {
     case FETCH_ALL:
       return action.payload; // action.payload = actual posts
@@ -17,6 +17,6 @@ const reducer = (posts = [], action) => {
   }
 }
 
-export default reducer;
+export default postsReducer;
 // const reducer = (state = [], action) {} 
 // --> post reducer --> 'state' always 'post'

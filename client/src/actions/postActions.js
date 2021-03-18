@@ -12,8 +12,8 @@ export const getPosts = () =>  async (dispatch) => {
 
     dispatch ({type: FETCH_ALL, payload: data}); // payload: data where posts are stored  
   }
-  catch (error) {
-    console.log(error);
+  catch (err) {
+    console.log(err);
   }
 }
 // from here: action dispatched from App.js useEffect --> posts.js (reducer): handle the logic of fetching all posts
@@ -24,8 +24,8 @@ export const createPost = (post) => async (dispatch) => {
 
     dispatch({type: CREATE, payload: data});
   } 
-  catch (error) {
-    console.log(error);    
+  catch (err) {
+    console.log(err);    
   }
 }
 
@@ -35,8 +35,8 @@ export const updatePost = (id, post) => async (dispatch) => {
 
     dispatch({type: UPDATE, payload: data});
 
-  } catch (error) {
-    console.log(error);    
+  } catch (err) {
+    console.log(err);    
   }
 }
 
@@ -46,8 +46,8 @@ export const deletePost = (id) => async (dispatch) => {
 
     dispatch({type: DELETE, payload: id});
 
-  } catch (error) {
-    console.log(error);    
+  } catch (err) {
+    console.log(err);    
   }
 }
 
@@ -56,7 +56,7 @@ export const likePost = (id) => async (dispatch) => {
     const {data} = await api.likePost(id);
 
     dispatch({type: LIKE, payload: data});
-  } catch (error) {
-    console.log(error);
+  } catch (err) {
+    console.log(err);
   }
 }
