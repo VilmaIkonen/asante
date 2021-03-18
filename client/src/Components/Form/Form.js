@@ -6,63 +6,61 @@ import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './stylesForm';
 import { createPost, updatePost } from '../../actions/postActions';
 
+const postInitialState = {recipient: '', message: '', selectedFile: ''};
+
 const Form = ({currentId, setCurrentId}) => {
   
-  const [ postData, setPostData ] = useState({
-    creator: '',
-    recipient: '',
-    message: '',
-    selectedFile: ''    
-  })
-
+  const [ postData, setPostData ] = useState(postInitialState);
   const classes = useStyles();
-  const dispatch = useDispatch(); // allows dipatch of actions
-
+  const dispatch = useDispatch();
   // Fetching data for the update of a post and Populate the values of the Form
-  const post = useSelector((state) => currentId ? state.posts.find((p) => p._id === currentId) : null);
+  const post = useSelector((state) => currentId ? state.posts.find((message) => message._id === currentId) : null);
+  const user = JSON.parse(localStorage.getItem('profile'));
 
   useEffect(() => {
     if(post) setPostData(post);
   }, [post])
    
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if(currentId) {
-      dispatch(updatePost(currentId, postData));
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if(currentId === 0) {
+      dispatch(createPost({...postData, name: user?.result?.name})); // info to backend which name to use (based on login)
+      clear();
     }
     else {
-      dispatch(createPost(postData));
+      dispatch(updatePost(currentId, {...postData, name: user?.result?.name}));
     }   
     clear(); 
   }
 
   // Clear the form after editing and posting
   const clear = () => {
-    setCurrentId(null);
+    setCurrentId(0);
     setPostData({
-      creator: '',
       recipient: '',
       message: '',
       selectedFile: '' 
     })
   }
 
+  // shown to user if not logged in:
+  if(!user?.result?.name)  {
+    return (
+      <Paper className={classes.paper}>
+        <Typography variant='h6' align='center'>
+          If you want to create or like a post, please sign in.
+        </Typography>
+      </Paper>
+    )
+  }
+
   return (
-    <Paper className={classes.paper}>
+    <Paper className={classes.paper} elevation={5}>
     {/* classes.root/classes.form --> Multiple templates w template string to get styling from MUI to both root and form (see styles.css) */}
       <form autoComplete='off' className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}> 
         <Typography className={classes.heading} variant='h6'>{currentId ? 'Edit the' : 'Create a'} message</Typography>
-        <TextField 
-          required
-          name='creator' 
-          variant='outlined' 
-          label='From' 
-          fullWidth 
-          value={postData.creator} 
-          onChange={(e) => setPostData({...postData, creator: e.target.value})} 
-        /> 
-          {/* 'spread + creator: Keep other data, change only a specific property of text field' */}       
         <TextField 
           required
           name='recipient' 
