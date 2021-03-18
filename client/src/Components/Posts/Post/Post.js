@@ -35,22 +35,27 @@ const Post = ({post, setCurrentId}) => {
         <Typography className={classes.creatorCreatedEdit} variant="h6">From: {post.name}</Typography>
         <Typography className={classes.creatorCreatedEdit} variant="body2">{moment(post.createdAt).fromNow()}</Typography>
       </div>
-      <div className={classes.overlay2}>
-        <Button className={classes.creatorCreatedEdit} style={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}>
-          <MoreHorizIcon fontSize="default" />
-          Edit
-        </Button>
-      </div>     
+
+        {/* Enable/dispable delete based on user login */}
+        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) ? ( 
+          <div className={classes.overlay2}>   
+            <Button className={classes.creatorCreatedEdit} style={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" />Edit</Button>
+          </div> 
+        ) : null } 
+         
       <Typography className={classes.recipient} variant="h4" gutterTop>To: {post.recipient}</Typography>    
       <CardContent>
         <Typography className={classes.message} variant="body1" gutterBottom>{post.message}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
+
         <Button className={classes.likeDeleteButton} size="small" onClick={() => dispatch(likePost(post._id))} disabled={!user?.result}><Likes/></Button>
-        <Button className={classes.likeDeleteButton}  size="small" onClick={() => dispatch(deletePost(post._id))}>
-          <DeleteIcon fontSize="small"/>
-          &nbsp;Delete
-        </Button>
+
+        {/* Enable/dispable delete based on user login */}
+        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) ? (
+          <Button className={classes.likeDeleteButton}  size="small" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small"/> &nbsp;Delete</Button>
+        ) : null }
+   
       </CardActions>
     </Card>
   )
