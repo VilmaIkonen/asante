@@ -31,11 +31,13 @@ const NavBar = () => {
     if(token) {
       const decodedToken = decode(token);
       if(decodedToken.exp * 1000 < new Date().getTime()) {
-        logout();
+        return logout();
       }
     }
     setUser(JSON.parse(localStorage.getItem('profile')));
-  }, [location]) // when location changes, set the user profile (name and avatar) on navbar
+    // following line removes console warning about useEffect midding dependencies:
+    // eslint-disable-next-line react-hooks/exhaustive-deps 
+    }, [location]) // when location changes, set the user profile (name and avatar) on navbar
  
   return (
     <AppBar className={classes.appBar} position="static" color="inherit">
