@@ -20,7 +20,7 @@ export const createPost = async (req, res) => {
   const newPost = new PostMessage({...post, creator: req.userId, createdAt: new Date().toISOString()}); // set creator automatically based on login
   try {
     await newPost.save();
-    res.status(201). json(newPost);
+    res.status(201).json(newPost);
   }
   catch (err) {
     res.status(409).json({ message: err.message });
@@ -38,7 +38,9 @@ export const updatePost = async (req, res) => {
     return res.status(404).send(`No post found with id ${id}.`)
   };
 
-  const updatedPost = await PostMessage.findByIdAndUpdate(_id, {...post, _id}, {new: true}); // spread old post and add the id property
+  const updatedPost = { post, _id: id}
+
+  await PostMessage.findByIdAndUpdate(id, updatePost, {new: true}); // spread old post and add the id property
   res.json(updatedPost);
 }
 
