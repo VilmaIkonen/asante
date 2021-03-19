@@ -1,11 +1,11 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { COLORS, FONTS } from '../../../Constants/styleConstants'
+import { COLORS_SOFT, COLORS_FRESH, COLORS_BREEZE, FONTS } from '../../../Constants/styleConstants'
 
 export default makeStyles({
   media: {
     height: 0,
     paddingTop: '56.25%',
-    backgroundColor: COLORS.colorCardBg
+    backgroundColor: COLORS_FRESH.colorCardBg
   },
   border: {
     border: 'solid'
@@ -14,7 +14,7 @@ export default makeStyles({
     height: '100%'
   },
   card: {
-    backgroundColor: COLORS.colorCardBg,
+    backgroundColor: COLORS_FRESH.colorCardBg,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -27,19 +27,19 @@ export default makeStyles({
     top: '1rem',
     left: '1rem',
     fontWeight:'bold',
-    color: COLORS.colorTextPrimary,
+    color: COLORS_FRESH.colorTextPrimary,
     fontFamily: FONTS.fontText
     // mixBlendMode: 'difference'  
   },
   creatorCreatedEdit: {
     fontFamily: FONTS.fontText,
-    color: COLORS.colorTextPrimary
+    color: COLORS_FRESH.colorTextPrimary
   },
   overlay2: {
     position: 'absolute',
     top: '1rem',
     right: '1rem',
-    color: COLORS.colorTextPrimary,
+    color: COLORS_FRESH.colorTextPrimary,
     fontWeight:'bold',
     // mixBlendMode: 'difference'  
   },
@@ -48,12 +48,12 @@ export default makeStyles({
   },
   message: {
     fontFamily: FONTS.fontText,
-    color: COLORS.colorTextPrimary,
+    color: COLORS_FRESH.colorTextPrimary,
   },
   recipient: {
     padding: '0 1rem',
     fontFamily: FONTS.fontHeadingEmphasis,
-    color: COLORS.colorTextPrimary,   
+    color: COLORS_FRESH.colorTextPrimary,   
   },
   cardActions: {
     padding: '0 1rem .5rem 1rem',
@@ -61,7 +61,7 @@ export default makeStyles({
     justifyContent: 'space-between'
   },
   likeDeleteButton: {
-    color: COLORS.colorIconsPrimary,
+    color: COLORS_FRESH.colorIconsPrimary,
     fontFamily: FONTS.fontText
   }
 });
