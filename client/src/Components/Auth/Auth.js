@@ -86,7 +86,7 @@ const Auth = () => {
             {isSignUp ? 'Sign up' : 'Sign in'}
           </Button> {/* On click, button submits firm data (handleSubmit) */}
           <GoogleLogin 
-            clientId='GOOGLE_ID'
+            clientId='new client id, old one deleted after exposure'
             render={(renderProps) => (
               <Button 
                 className={classes.googleButton}
