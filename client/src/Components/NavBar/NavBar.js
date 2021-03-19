@@ -4,8 +4,8 @@ import { Link, useHistory, useLocation  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 import useStyles from './stylesNavBar'
-import logo from '../../images/logo.svg'
-import {LOGOUT} from '../../Constants/actionTypes'
+import logo from '../../images/logoSecondary.svg'
+import { LOGOUT } from '../../Constants/actionTypes'
 
 const NavBar = () => {
 
@@ -40,6 +40,7 @@ const NavBar = () => {
     }, [location]) // when location changes, set the user profile (name and avatar) on navbar
  
   return (
+    <>  
     <AppBar className={classes.appBar} position="static" color="inherit">
     <div className={classes.brandContainer}>
       <img className={classes.logo} src={logo} alt='logo'></img>
@@ -47,21 +48,24 @@ const NavBar = () => {
       component={Link} to='/' 
       className={classes.heading} variant="h1" align="center">Asante</Typography>      
     </div>
-      <Typography className={classes.heading2} variant="h2" align="center">Thank your or congratulate your colleague for a job well done!</Typography>
-      <Toolbar className={classes.toolbar}>
-        {/* Conditional rendering: content depending whether user is logged in or not */}
-        {user ? (
-          <div className={classes.userProfile}>
-            <Avatar className={classes.avatar} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-            <Typography className={classes.userName} variant='h6'>{user.result.name}
-            </Typography>
-            <Button className={classes.logout} variant='contained' onClick={logout}>Logout</Button>
-          </div>
-        ) : (
-          <Button component={Link} to='/auth' variant='contained'>Sign in</Button>
-        )}
-      </Toolbar>
-   </AppBar>
+      <Typography className={classes.heading2} variant="h2" align="center">Thank or congratulate your colleague for a job well done!</Typography>      
+    </AppBar>
+    <Toolbar className={classes.toolbar}>
+    {/* Conditional rendering: content depending whether user is logged in or not */}
+    {user ? (
+      <>
+      <div className={classes.userProfile}>
+        <Avatar className={classes.avatar} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
+        <Typography className={classes.userName} variant='h6'>{user.result.name}
+        </Typography>
+      </div>
+      <Button className={classes.logout} variant='contained' onClick={logout}>Logout</Button>
+      </>
+    ) : (
+      <Button className={classes.signin} component={Link} to='/auth' variant='contained'>Sign in</Button>
+    )}
+  </Toolbar>
+  </>
   );
 };
 

@@ -1,19 +1,36 @@
-const COLORS = {
-  colorBackground: '#e5e4e5',
-  colorHeaderFooter: '#1c4d6d',
-  colorCardBg: '#c8e8c3',
-  colorTextPrimary: '#151515',
-  colorTextSecondary: '#e1e6ef',  
-  colorTextHover: '#e45f25',  
-  colorButtonSubmit: '#1c4d6d',
-  colorButtonClear: '#f4982c',
-  colorButtonHover: '#d6a235',
-  colorIconsPrimary: '#1c4d6d'   
+const COLORS_SOFT = {
+  colorMain: '#06234f',
+  colorSecondary: '#ffc3bc',
+  colorThird: '#18133e',
+  colorFourth: '#f7f7f7',
+  colorLight: '#ffffff',  
+  colorDark: '#16132c'  
+}
+
+const COLORS_FRESH = {
+  colorMain: '#ceeb4c',
+  colorMainOpacity50: '#ceeb4c80',
+  colorSecondary: '#db7b40',
+  colorSecondaryOpacity50: '#db7b4080',
+  colorThird: '#191919',
+  colorFourth: '#f7f7f7',
+  colorFourthOpacity50: '#f7f7f780',
+  colorLight: '#ffffff',  
+  colorDark: '#000000'  
+}
+
+const COLORS_BREEZE = {
+  colorMain: '#459a8e',
+  colorSecondary: '#d7f7fc',
+  colorThird: '#025955',
+  colorFourth: '#f7f7f7',
+  colorLight: '#ffffff',  
+  colorDark: '#015450'  
 }
 
 const FONTS = {
-  fontHeadingEmphasis: "'Indie Flower', cursive",
-  fontText: "Raleway', sans-serif"
+  font1: "'Shadows Into Light', cursive;",
+  font2: "'Source Sans Pro', sans-serif"
   }
 
-export { COLORS, FONTS };
+export { COLORS_SOFT, COLORS_FRESH, COLORS_BREEZE, FONTS };
