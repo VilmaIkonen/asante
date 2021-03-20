@@ -2,6 +2,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import { COLORS_SOFT, COLORS_FRESH, COLORS_BREEZE, FONTS } from '../../../Constants/styleConstants'
 
 export default makeStyles({
+  font: {
+    fontFamily: FONTS.font2,
+    marginBottom: '1rem'
+  },
   card: {
     display: 'flex',
     flexDirection: 'column',
@@ -9,64 +13,39 @@ export default makeStyles({
     borderRadius: '.3rem',
     height: '100%',
     position: 'relative',
-    backgroundColor: COLORS_FRESH.colorMainOpacity50,
-    zIndex: '100'
+    backgroundColor: COLORS_FRESH.colorMainOpacity30
   },
   media: {
     height: 0,
-    paddingTop: '56.25%',
-    zIndex: '1'
-  },
-  border: {
-    border: 'solid'
-  },
-  fullHeightCard: {
-    height: '100%'
+    paddingTop: '56.25%'
   },
   overlay: {
+    display:' inline-flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     position: 'absolute',
     top: '1rem',
     left: '1rem',
     fontWeight:'bold',
-    color: COLORS_FRESH.colorTextPrimary,
-    fontFamily: FONTS.fontText
-    // mixBlendMode: 'difference'  
-    ,
-    zIndex: '1'
+    color: COLORS_FRESH.colorThird,
+    width: '90%',
+    padding: '0rem'
   },
-  creatorCreatedEdit: {
-    fontFamily: FONTS.fontText,
-    color: COLORS_FRESH.colorTextPrimary
-  },
-  overlay2: {
-    position: 'absolute',
-    top: '1rem',
-    right: '1rem',
-    color: COLORS_FRESH.colorTextPrimary,
-    fontWeight:'bold',
-    // mixBlendMode: 'difference'  
-    
-    zIndex: '1'
-  },
-  grid: {
-    display: 'flex'
+  container: {
+    color: COLORS_FRESH.colorThird,
   },
   message: {
-    fontFamily: FONTS.fontText,
-    color: COLORS_FRESH.colorTextPrimary,
+    marginBottom: '1.5rem'
   },
-  recipient: {
-    padding: '0 1rem',
-    fontFamily: FONTS.fontHeadingEmphasis,
-    color: COLORS_FRESH.colorTextPrimary,   
+  creator: {
+    fontSize: '1.2rem'
   },
-  cardActions: {
-    padding: '0 1rem .5rem 1rem',
+  cardActions: {   
     display: 'flex',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
+    padding: '0rem'
   },
-  likeDeleteButton: {
-    color: COLORS_FRESH.colorIconsPrimary,
-    fontFamily: FONTS.fontText
+  likeDelete: {   
+    marginBottom: '0rem'
   }
 });

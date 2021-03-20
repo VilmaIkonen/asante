@@ -32,32 +32,33 @@ const Post = ({post, setCurrentId}) => {
     <Card className={classes.card} elevation={5}>
       <CardMedia className={classes.media} image={post.selectedFile || 'https://source.unsplash.com/bq6Gd7pQznU/640x799'} src='img' recipient={post.recipient} />
       <div className={classes.overlay}>
-        <Typography className={classes.creatorCreatedEdit} variant="h6">From: {post.name}</Typography>
-        <Typography className={classes.creatorCreatedEdit} variant="body2">{moment(post.createdAt).fromNow()}</Typography>
-      </div>
+        <Typography className={classes.font}  variant="body2">{moment(post.createdAt).fromNow()}</Typography>
 
         {/* Enable/dispable edit based on user login */}
         {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) ? ( 
-          <div className={classes.overlay2}>   
-            <Button className={classes.creatorCreatedEdit} style={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" />Edit</Button>
-          </div> 
-        ) : null } 
          
-      <Typography className={classes.recipient} variant="h4">To: {post.recipient}</Typography>    
-      <CardContent>
-        <Typography className={classes.message} variant="body1" gutterBottom>{post.message}</Typography>
+            <Button className={classes.font} style={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" />Edit</Button>
+         
+        ) : null } 
+      </div>
+      <CardContent className={classes.container}>
+        <Typography className={classes.font}variant="h5">To: {post.recipient}</Typography>    
+       
+          <Typography className={`${classes.message} ${classes.font}`}variant="body1">{post.message}</Typography>
+       
+        <Typography className={`${classes.creator} ${classes.font}`} variant="h6">BR, {post.name}</Typography>
+        <CardActions className={classes.cardActions}>
+
+          {/* Enable/dispable liking based on user login */}
+          <Button className={`${classes.likeDelete} ${classes.font}`} size="small" onClick={() => dispatch(likePost(post._id))} disabled={(!user?.result || user?.result?.googleId === post?.creator || user?.result?._id === post?.creator)}><Likes/></Button>
+
+          {/* Enable/dispable delete based on user login */}
+          {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) ? (
+            <Button className={`${classes.likeDelete} ${classes.font}`} size="small" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small"/> &nbsp;Delete</Button>
+          ) : null }
+    
+        </CardActions>
       </CardContent>
-      <CardActions className={classes.cardActions}>
-
-        {/* Enable/dispable liking based on user login */}
-        <Button className={classes.likeDeleteButton} size="small" onClick={() => dispatch(likePost(post._id))} disabled={(!user?.result || user?.result?.googleId === post?.creator || user?.result?._id === post?.creator)}><Likes/></Button>
-
-        {/* Enable/dispable delete based on user login */}
-        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) ? (
-          <Button className={classes.likeDeleteButton} size="small" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small"/> &nbsp;Delete</Button>
-        ) : null }
-   
-      </CardActions>
     </Card>
   )
 }

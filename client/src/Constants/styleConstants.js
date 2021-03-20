@@ -10,6 +10,7 @@ const COLORS_SOFT = {
 const COLORS_FRESH = {
   colorMain: '#ceeb4c',
   colorMainOpacity50: '#ceeb4c80',
+  colorMainOpacity30: '#ceeb4c4d',
   colorSecondary: '#db7b40',
   colorSecondaryOpacity50: '#db7b4080',
   colorThird: '#191919',
