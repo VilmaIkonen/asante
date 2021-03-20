@@ -13,6 +13,7 @@ const COLORS_FRESH = {
   colorSecondary: '#db7b40',
   colorSecondaryOpacity50: '#db7b4080',
   colorThird: '#191919',
+  colorThirdOpacity: '#19191966',
   colorFourth: '#f7f7f7',
   colorFourthOpacity50: '#f7f7f780',
   colorLight: '#ffffff',  

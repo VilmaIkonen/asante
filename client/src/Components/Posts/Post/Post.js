@@ -30,7 +30,7 @@ const Post = ({post, setCurrentId}) => {
 
   return (
     <Card className={classes.card} elevation={5}>
-      <CardMedia className={classes.media} image={post.selectedFile} src='img' recipient={post.recipient} />
+      <CardMedia className={classes.media} image={post.selectedFile || 'https://source.unsplash.com/bq6Gd7pQznU/640x799'} src='img' recipient={post.recipient} />
       <div className={classes.overlay}>
         <Typography className={classes.creatorCreatedEdit} variant="h6">From: {post.name}</Typography>
         <Typography className={classes.creatorCreatedEdit} variant="body2">{moment(post.createdAt).fromNow()}</Typography>

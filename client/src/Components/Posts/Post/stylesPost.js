@@ -2,25 +2,26 @@ import { makeStyles } from '@material-ui/core/styles';
 import { COLORS_SOFT, COLORS_FRESH, COLORS_BREEZE, FONTS } from '../../../Constants/styleConstants'
 
 export default makeStyles({
+  card: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    borderRadius: '.3rem',
+    height: '100%',
+    position: 'relative',
+    backgroundColor: COLORS_FRESH.colorMainOpacity50,
+    zIndex: '100'
+  },
   media: {
     height: 0,
     paddingTop: '56.25%',
-    backgroundColor: COLORS_FRESH.colorCardBg
+    zIndex: '1'
   },
   border: {
     border: 'solid'
   },
   fullHeightCard: {
     height: '100%'
-  },
-  card: {
-    backgroundColor: COLORS_FRESH.colorCardBg,
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    borderRadius: '.3rem',
-    height: '100%',
-    position: 'relative'
   },
   overlay: {
     position: 'absolute',
@@ -30,6 +31,8 @@ export default makeStyles({
     color: COLORS_FRESH.colorTextPrimary,
     fontFamily: FONTS.fontText
     // mixBlendMode: 'difference'  
+    ,
+    zIndex: '1'
   },
   creatorCreatedEdit: {
     fontFamily: FONTS.fontText,
@@ -42,6 +45,8 @@ export default makeStyles({
     color: COLORS_FRESH.colorTextPrimary,
     fontWeight:'bold',
     // mixBlendMode: 'difference'  
+    
+    zIndex: '1'
   },
   grid: {
     display: 'flex'
