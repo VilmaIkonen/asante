@@ -44,12 +44,13 @@ export default makeStyles((theme) => ({
     fontWeight: 400    
   },
   signin: {
-    backgroundColor: theme.palette.secondary,
-    color: theme.palette.light,
-    fontWeight: 700
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.light.main,
+    fontWeight: 600
   },
   logout: {
-    backgroundColor: theme.palette.secondary,
-    color: theme.palette.light
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.light.main,
+    fontWeight: 600
   }
 }));
