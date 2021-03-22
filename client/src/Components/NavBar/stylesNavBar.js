@@ -1,11 +1,8 @@
 import { makeStyles } from '@material-ui/core';
-import { deepPurple } from '@material-ui/core/colors';
-import { COLORS_SOFT, COLORS_FRESH, COLORS_BREEZE, FONTS } from '../../Constants/styleConstants';
 
 export default makeStyles((theme) => ({
   appBar: {
     borderRadius: 5,
-    backgroundColor: COLORS_FRESH.colorMain,
     margin: '2rem 0',    
   },
   brandContainer: {
@@ -16,19 +13,13 @@ export default makeStyles((theme) => ({
     marginTop: '2rem'
   },
   heading: {
-    color: COLORS_FRESH.colorDark,
-    fontFamily: FONTS.font1,
-    fontWeight: 'bold',
+    color: theme.palette.third.main,
     paddingTop: '1rem',
-    textDecoration: 'none',
-    fontSize: '7rem',
-    fontWeight:'400'
+    textDecoration: 'none'
   },
   heading2: {
-    color: COLORS_FRESH.colorDark,
-    fontFamily: FONTS.font2,
-    padding: '1rem',
-    fontSize: '2rem'
+    color: theme.palette.third.main,
+    padding: '1rem',    
   },
   toolbar: {
     paddingBottom: '2rem',
@@ -39,28 +30,26 @@ export default makeStyles((theme) => ({
   userProfile: {
     display: 'flex',
     justifyContent: 'flex-start',
-    width:'400px',
+    width:'400px'
   },
   userName: {
     display: 'flex',
     alignItems: 'center',
-    fontFamily: FONTS.font2,
-    color: COLORS_FRESH.colorThird,
+    color: theme.palette.third.main,
     margin: '0 2rem'
   },
   avatar: {
-    color: COLORS_FRESH.colorThird,
-    backgroundColor: COLORS_FRESH.colorFourthOpacity50,
-    fontFamily: FONTS.font2
+    color: theme.palette.third.main,
+    backgroundColor: theme.palette.secondary.light50,
+    fontWeight: 400    
   },
   signin: {
-    backgroundColor: COLORS_FRESH.colorSecondary,
-    color: COLORS_FRESH.colorLight,
-    fontFamily: FONTS.font2
+    backgroundColor: theme.palette.secondary,
+    color: theme.palette.light,
+    fontWeight: 700
   },
   logout: {
-    backgroundColor: COLORS_FRESH.colorSecondary,
-    color: COLORS_FRESH.colorLight,
-    fontFamily: FONTS.font2
+    backgroundColor: theme.palette.secondary,
+    color: theme.palette.light
   }
 }));

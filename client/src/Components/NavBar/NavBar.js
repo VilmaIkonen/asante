@@ -4,12 +4,14 @@ import { Link, useHistory, useLocation  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 import useStyles from './stylesNavBar'
+import { useTheme } from '@material-ui/core/styles';
 import logo from '../../images/logoSecondary.svg'
 import { LOGOUT } from '../../Constants/actionTypes'
 
 const NavBar = () => {
 
   const classes = useStyles();
+  const theme = useTheme();
   // setting user with the info from authReducer ('profile'), fetching the actual user info from local storage
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
@@ -41,7 +43,7 @@ const NavBar = () => {
  
   return (
     <>  
-    <AppBar className={classes.appBar} position="static" color="inherit">
+    <AppBar className={classes.appBar} position="static">
     <div className={classes.brandContainer}>
       <img className={classes.logo} src={logo} alt='logo'></img>
       <Typography 
@@ -56,7 +58,7 @@ const NavBar = () => {
       <>
       <div className={classes.userProfile}>
         <Avatar className={classes.avatar} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-        <Typography className={classes.userName} variant='h6'>{user.result.name}
+        <Typography className={classes.userName} variant='body1'>{user.result.name}
         </Typography>
       </div>
       <Button className={classes.logout} variant='contained' onClick={logout}>Logout</Button>
