@@ -11,7 +11,7 @@ const Home = () => {
 
   // Home.js the common parent to Posts and Form. At the start, id = null
   // These are passed to components from here and accepted in components as props
-  const [currentId, setCurrentId] = useState(null);
+  const [currentId, setCurrentId] = useState(0);
 
   // Styling w MUI and styles file. Connected to component via "classname"
   const classes = useStyles(); 
