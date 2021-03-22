@@ -1,11 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { COLORS_SOFT, COLORS_FRESH, COLORS_BREEZE, FONTS } from '../../../Constants/styleConstants'
 
-export default makeStyles({
-  font: {
-    fontFamily: FONTS.font2,
-    marginBottom: '1rem'
-  },
+export default makeStyles((theme) => ({
   card: {
     display: 'flex',
     flexDirection: 'column',
@@ -13,7 +8,7 @@ export default makeStyles({
     borderRadius: '.3rem',
     height: '100%',
     position: 'relative',
-    backgroundColor: COLORS_FRESH.colorMainOpacity30
+    backgroundColor: theme.palette.primary.light30
   },
   media: {
     height: 0,
@@ -27,18 +22,21 @@ export default makeStyles({
     top: '1rem',
     left: '1rem',
     fontWeight:'bold',
-    color: COLORS_FRESH.colorThird,
     width: '90%',
     padding: '0rem'
   },
   container: {
-    color: COLORS_FRESH.colorThird,
+    color: theme.palette.third.main
+  },
+  recipient: {
+    marginBottom: '2rem'
   },
   message: {
     marginBottom: '1.5rem'
   },
   creator: {
-    fontSize: '1.2rem'
+    fontSize: '1.2rem',
+    marginBottom: '1.2rem'
   },
   cardActions: {   
     display: 'flex',
@@ -48,4 +46,4 @@ export default makeStyles({
   likeDelete: {   
     marginBottom: '0rem'
   }
-});
+}));
