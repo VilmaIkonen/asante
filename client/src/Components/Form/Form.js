@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { TextField, Button, Typography, Paper } from '@material-ui/core';
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
+import { TextField, Button, Typography, Paper } from '@material-ui/core';
 
 import useStyles from './stylesForm';
 import { createPost, updatePost } from '../../actions/postActions';
+// import HiddenButton from './HiddenButton';
 
 const postInitialState = {recipient: '', message: '', selectedFile: ''};
 
@@ -21,7 +22,6 @@ const Form = ({currentId, setCurrentId}) => {
     if(post) setPostData(post);
   }, [post])
    
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -49,8 +49,8 @@ const Form = ({currentId, setCurrentId}) => {
   if(!user?.result?.name)  {
     return (
       <Paper className={classes.paper}>
-        <Typography variant='h6' align='center'>
-          If you want to create or like a post, please sign in.
+        <Typography variant='h3' align='center'>
+          If you want to create or like a post, please sign in
         </Typography>
       </Paper>
     )
@@ -58,23 +58,26 @@ const Form = ({currentId, setCurrentId}) => {
 
   return (
     <Paper className={classes.paper} elevation={5}>
-    {/* classes.root/classes.form --> Multiple templates w template string to get styling from MUI to both root and form (see styles.css) */}
       <form autoComplete='off' className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}> 
-        <Typography className={classes.heading} variant='h6'>{currentId ? 'Edit the' : 'Create a'} message</Typography>
-        <TextField 
+        <Typography className={classes.heading} variant='h3'>{currentId ? 'Edit the' : 'Create a'} message</Typography>
+        <TextField
+          className={classes.input}
           required
           name='recipient' 
           variant='outlined' 
           label='To' 
+          InputLabelProps={{style: {fontSize: '1rem'}}}
           fullWidth 
           value={postData.recipient} 
           onChange={(e) => setPostData({...postData, recipient: e.target.value})} 
         />
         <TextField 
+          className={classes.input}
           required
           name='message' 
           variant='outlined' 
           label='Message' 
+          InputLabelProps={{style: {fontSize: '1rem'}}}
           fullWidth 
           multiline={true}
           value={postData.message} 
@@ -96,7 +99,7 @@ const Form = ({currentId, setCurrentId}) => {
         </Button>
         <Button 
           className={classes.buttonClear}
-          variant='contained' 
+          variant='contained'
           size='large'
           onClick={clear}
           fullWidth>Clear

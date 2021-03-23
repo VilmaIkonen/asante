@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core/styles';
-import { COLORS_SOFT, COLORS_FRESH, COLORS_BREEZE, FONTS } from '../../Constants/styleConstants'
 
 export default makeStyles((theme) => ({
   root: {
@@ -9,8 +8,8 @@ export default makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    backgroundColor: COLORS_FRESH.colorTextSecondary,
-    color: COLORS_FRESH.colorTextPrimary
+    backgroundColor: theme.palette.primary.light30,
+    color: theme.palette.third.main
   },
   form: {
     display: 'flex',
@@ -18,21 +17,24 @@ export default makeStyles((theme) => ({
     justifyContent: 'center'
   },
   heading: {
-    fontFamily: FONTS.fontText
+    marginBottom: '2rem'
+  },
+  input: {
+    backgroundColor: theme.palette.fourth.main,
+    marginBottom: '2rem'
   },
   fileInput: {
     width: '92%',
-    margin: '1rem 0',
-    fontFamily: FONTS.fontText
+    margin: '1rem 0'
   },
   buttonSubmit: {
-    marginBottom: 10,
-    backgroundColor: COLORS_FRESH.colorButtonSubmit,
-    color: COLORS_FRESH.colorTextSecondary 
+    marginBottom: '1rem',
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.light.main
   },
   buttonClear: {
-    backgroundColor: COLORS_FRESH.colorButtonClear,
-    color: COLORS_FRESH.colorTextPrimary,
-    fontFamily: FONTS.fontText 
+    marginBottom: '1rem',
+    backgroundColor: theme.palette.fourth.main,
+    color: theme.palette.third.main 
   }
 }));
