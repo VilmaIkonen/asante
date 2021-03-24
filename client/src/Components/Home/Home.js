@@ -1,4 +1,4 @@
-import React, { useEffect, useState }from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Container, Grow, Grid } from '@material-ui/core';
 
@@ -9,7 +9,7 @@ import Form from '../Form/Form';
 
 const Home = () => {
 
-  // Home.js the common parent to Posts and Form. At the start, id = null
+  // Home.js the common parent to Posts and Form. 
   // These are passed to components from here and accepted in components as props
   const [currentId, setCurrentId] = useState(0);
 
