@@ -20,8 +20,7 @@ export default makeStyles((theme) => ({
     marginBottom: '2rem'
   },
   input: {
-    backgroundColor: theme.palette.fourth.main,
-    marginBottom: '2rem'
+    backgroundColor: theme.palette.fourth.main
   },
   fileInput: {
     width: '92%',
