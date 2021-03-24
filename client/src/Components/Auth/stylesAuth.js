@@ -2,30 +2,40 @@ import { makeStyles } from '@material-ui/core';
 // import { COLORS, FONTS } from '../../Constants/styleConstants';
 
 export default makeStyles((theme) => ({
+  root: {
+    '& .MuiTextField-root': {
+      margin: theme.spacing(1),
+    },
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     padding: theme.spacing(2),
-  },
-  root: {
-    '& .MuiTextField-root': {
-      margin: theme.spacing(1),
-    },
+    backgroundColor: theme.palette.primary.light30,
+    color: theme.palette.third.main
   },
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
+    width: '100%',
     marginTop: theme.spacing(3),
   },
+  input: {
+    backgroundColor: theme.palette.fourth.main,
+    marginBottom: '2rem'
+  },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(1, 0, 2),
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.light.main
   },
   googleButton: {
     marginBottom: theme.spacing(2),
-  },
+    width: '100%',
+    justifyContent: 'center'
+  }
 }));

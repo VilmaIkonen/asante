@@ -40,12 +40,24 @@ const themeFresh = createMuiTheme({
     },
     h2: {
       fontFamily: "'Source Sans Pro', sans-serif",
+      fontSize: '2.2rem'
+    },
+    h3: {
+      fontFamily: "'Shadows Into Light', cursive",
       fontSize: '2rem'
+    },
+    h4: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontSize: '1.8rem'
+    },
+    h5: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontSize: '1.6rem'
     },
     body1: {
       fontFamily: "'Source Sans Pro', sans-serif",
       fontWeight: 400,
-      fontSize: '1.5rem'
+      fontSize: '1.4rem'
     },
     body2: {
       fontFamily: "'Source Sans Pro', sans-serif",
@@ -54,7 +66,7 @@ const themeFresh = createMuiTheme({
     },
     button: {
       fontFamily: "'Source Sans Pro', sans-serif",
-      fontWeight: 400
+      fontWeight: 600
     }
   }
 });

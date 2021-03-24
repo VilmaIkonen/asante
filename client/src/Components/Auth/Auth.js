@@ -9,7 +9,7 @@ import { signup, signin } from '../../actions/authActions'
 import Input from './Input';
 import Icon from './icon'
 import useStyles from './stylesAuth';
-import {AUTH} from '../../Constants/actionTypes'
+import { AUTH } from '../../Constants/actionTypes'
 
 const formInitialState = {firstname: '', lastname: '', email: '', password: '', confirmPassword: ''};
 
@@ -21,7 +21,7 @@ const Auth = () => {
   const [formData, setFormData] = useState(formInitialState);
   const dispatch = useDispatch();
   const history = useHistory();
-  
+    
   const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); // previous state needed to toggle between states
 
   const handleSubmit = (event) => {
@@ -69,37 +69,25 @@ const Auth = () => {
         <Avatar className={classes.avatar}>
           <LockOutLinedIcon />
         </Avatar>
-        <Typography variant='h5'>{isSignUp ? 'Sign up' : 'Sign in'}</Typography>
+        <Typography variant='h3'>{isSignUp ? 'Sign up' : 'Sign in'}</Typography>
         <form className={classes.form} onSubmit={handleSubmit}>  
-          <Grid container spacing={2}>
+          <Grid container>
             {isSignUp && (
               <>
-                <Input name='firstname' label='First name' handleChange={handleChange} fullWidth autoFocus half />
-                <Input name='lastname' label='Last name' handleChange={handleChange} fullWidth half />
+                <Input name='firstname' label='First name' handleChange={handleChange} fullWidth />
+                <Input name='lastname' label='Last name' handleChange={handleChange} fullWidth />
               </>
             )} 
             <Input name='email' label='Email address' handleChange={handleChange} type='email' />
             <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
             {isSignUp ? <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password' /> : null}
           </Grid>           
-          <Button type='submit' fullWidth variant='contained' className={classes.submit}>
+          <Button type='submit' fullWidth variant='contained' size='large' className={classes.submit}>
             {isSignUp ? 'Sign up' : 'Sign in'}
-          </Button> {/* On click, button submits firm data (handleSubmit) */}
+          </Button>
           <GoogleLogin 
-            clientId='new client id, old one deleted after exposure'
-            render={(renderProps) => (
-              <Button 
-                className={classes.googleButton}
-                color='primary' 
-                fullWidth 
-                onClick={renderProps.onClick} 
-                disabled={renderProps.disabled} 
-                startIcon={<Icon/>} 
-                variant='contained'>
-              Google sign in
-              </Button>
-            )}
-            // handlers for successfull and failed logins
+            clientId='new client id, old one deleted after exposure'  
+            className={classes.googleButton}      
             onSuccess={googleSuccess}
             onFailure={googleFailure}
             cookiePolicy='single_host_origin'
