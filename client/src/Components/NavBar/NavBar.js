@@ -3,15 +3,13 @@ import { AppBar, Button, Toolbar, Typography, Avatar } from '@material-ui/core';
 import { Link, useHistory, useLocation  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
-import useStyles from './stylesNavBar'
-import { useTheme } from '@material-ui/core/styles';
-import logo from '../../images/logoSecondary.svg'
-import { LOGOUT } from '../../Constants/actionTypes'
+import useStyles from './stylesNavBar';
+import logo from '../../images/logoSecondary.svg';
+import { LOGOUT } from '../../Constants/actionTypes';
 
 const NavBar = () => {
 
   const classes = useStyles();
-  const theme = useTheme();
   // setting user with the info from authReducer ('profile'), fetching the actual user info from local storage
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('profile')));
   const dispatch = useDispatch();
