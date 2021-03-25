@@ -44,6 +44,7 @@ export default makeStyles((theme) => ({
     padding: '0rem'
   },
   likeDelete: {   
-    marginBottom: '0rem'
+    marginBottom: '0rem',
+    color: theme.palette.dark.main
   }
 }));

@@ -169,6 +169,47 @@ const themeSoft = createMuiTheme({
     dark: {
       main: '#16132c' 
     } 
+  },
+  typography: {
+    fontFamily: {
+      font1: "'Shadows Into Light', cursive",
+      font2: "'Source Sans Pro', sans-serif"
+    },
+    h1: {
+      fontFamily: "'Shadows Into Light', cursive",
+      fontWeight: 400,
+      fontSize: '7rem'
+    },
+    h2: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontSize: '2.2rem'
+    },
+    h3: {
+      fontFamily: "'Shadows Into Light', cursive",
+      fontSize: '2rem'
+    },
+    h4: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontSize: '1.8rem'
+    },
+    h5: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontSize: '1.6rem'
+    },
+    body1: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontWeight: 400,
+      fontSize: '1.4rem'
+    },
+    body2: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontWeight: 300,
+      fontSize: '1.2rem'
+    },
+    button: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontWeight: 600
+    }
   }
 }); 
 

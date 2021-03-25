@@ -19,6 +19,7 @@ export default makeStyles((theme) => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.dark.main
   },
   form: {
     width: '100%',

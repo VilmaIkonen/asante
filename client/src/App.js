@@ -12,7 +12,7 @@ import { themeFresh, themeBreeze, themeSoft } from './Constants/themes';
 const App = () => {
 
   return (
-    <ThemeProvider theme={themeFresh}>
+    <ThemeProvider theme={themeSoft}>
       <CssBaseline>
         <BrowserRouter>
           <Container maxwidth="lg">
