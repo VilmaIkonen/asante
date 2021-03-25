@@ -3,14 +3,14 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const themeFresh = createMuiTheme({
   palette: {
     primary: {
-      light30: '#ceeb4c4d',
-      light50: '#ceeb4c80',
-      main: '#ceeb4c'      
+      light30: '#5fa5364d',
+      light50: '#5fa53680',
+      main: '#5fa536'      
     },
     secondary: {
-      light30: '#db7b404d',
-      light50: '#db7b4080',
-      main: '#db7b40' 
+      light30: '#e6a3794d',
+      light50: '#e6a37980',
+      main: '#e6a379' 
     },
     third: {
       light30: '#1919194d',
@@ -98,6 +98,47 @@ const themeBreeze = createMuiTheme({
     dark: {
       main: '#015450' 
     } 
+  },
+  typography: {
+    fontFamily: {
+      font1: "'Shadows Into Light', cursive",
+      font2: "'Source Sans Pro', sans-serif"
+    },
+    h1: {
+      fontFamily: "'Shadows Into Light', cursive",
+      fontWeight: 400,
+      fontSize: '7rem'
+    },
+    h2: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontSize: '2.2rem'
+    },
+    h3: {
+      fontFamily: "'Shadows Into Light', cursive",
+      fontSize: '2rem'
+    },
+    h4: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontSize: '1.8rem'
+    },
+    h5: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontSize: '1.6rem'
+    },
+    body1: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontWeight: 400,
+      fontSize: '1.4rem'
+    },
+    body2: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontWeight: 300,
+      fontSize: '1.2rem'
+    },
+    button: {
+      fontFamily: "'Source Sans Pro', sans-serif",
+      fontWeight: 600
+    }
   }
 }); 
 

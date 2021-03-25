@@ -13,12 +13,12 @@ export default makeStyles((theme) => ({
     marginTop: '2rem'
   },
   heading: {
-    color: theme.palette.third.main,
+    color: theme.palette.fourth.main,
     paddingTop: '1rem',
     textDecoration: 'none'
   },
   heading2: {
-    color: theme.palette.third.main,
+    color: theme.palette.fourth.main,
     padding: '1rem',    
   },
   toolbar: {
@@ -45,12 +45,12 @@ export default makeStyles((theme) => ({
   },
   signin: {
     backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.light.main,
+    color: theme.palette.dark.main,
     fontWeight: 600
   },
   logout: {
     backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.light.main,
+    color: theme.palette.dark.main,
     fontWeight: 600
   }
 }));

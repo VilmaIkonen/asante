@@ -29,7 +29,7 @@ export default makeStyles((theme) => ({
   buttonSubmit: {
     marginBottom: '1rem',
     backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.light.main
+    color: theme.palette.dark.main
   },
   buttonClear: {
     marginBottom: '1rem',
