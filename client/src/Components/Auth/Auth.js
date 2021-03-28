@@ -74,13 +74,13 @@ const Auth = () => {
           <Grid container>
             {isSignUp && (
               <>
-                <Input name='firstname' label='First name' handleChange={handleChange} fullWidth />
-                <Input name='lastname' label='Last name' handleChange={handleChange} fullWidth />
+                <Input name='firstname' label='First name' handleChange={handleChange} fullWidth/>
+                <Input name='lastname' label='Last name' handleChange={handleChange} fullWidth/>
               </>
             )} 
-            <Input name='email' label='Email address' handleChange={handleChange} type='email' />
+            <Input name='email' label='Email address' handleChange={handleChange} type='email'/>
             <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
-            {isSignUp ? <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password' /> : null}
+            {isSignUp ? <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password'/> : null}
           </Grid>           
           <Button type='submit' fullWidth variant='contained' size='large' className={classes.submit}>
             {isSignUp ? 'Sign up' : 'Sign in'}

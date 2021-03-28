@@ -4,35 +4,34 @@ import { Container } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import NavBar from './Components/NavBar/NavBar';
+import Header from './Components/NavBar/Header';
+import SubHeader from './Components/NavBar/SubHeader';
 import Home from './Components/Home/Home';
 import Auth from './Components/Auth/Auth';
 import { themeFresh, themeBreeze, themeSoft } from './Constants/themes';
 
 const App = () => {
 
-  // const [theme, setTheme] = useState(themeFresh);  
-  // const themes = ['Fresh', 'Breeze', 'Soft'];
-
-  // const ThemeSelector = () => {
-  //   const [dropDown, setDropdown]
-  // }
-
   return (
     <ThemeProvider theme={themeFresh}>
       <CssBaseline>
         <BrowserRouter>
           <Container maxwidth="lg">
-            <NavBar/>
             <Switch>
-              <Route path='/' exact component={Home}/>
-              <Route path='/auth' exact component={Auth}/>
+              <Route path='/' exact>
+                <Header/>
+                <SubHeader/>
+                <Home/>
+              </Route>
+              <Route path='/auth' exact>
+                <Header/>
+                <Auth/>
+              </Route>
             </Switch>
           </Container>
         </BrowserRouter>
       </CssBaseline>
     </ThemeProvider>
-
   )
 };
 
