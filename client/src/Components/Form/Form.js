@@ -97,7 +97,6 @@ const Form = ({currentId, setCurrentId}) => {
           name='url' 
           variant='outlined' 
           placeholder='http://...' 
-          InputLabelProps={{style: {fontSize: '1rem'}}}
           fullWidth
           value={postData.url} 
           onChange={(e) => setPostData({...postData, url: e.target.value})} 
