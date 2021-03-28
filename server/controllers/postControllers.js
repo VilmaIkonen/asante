@@ -32,13 +32,13 @@ export const createPost = async (req, res) => {
 // Update logic handled on client side on Form.js
 export const updatePost = async (req, res) => {
   const {id} = req.params;
-  const {recipient, message, selectedFile, likes} = req.body
+  const {recipient, message, selectedFile, url, likes} = req.body
 
   if(!mongoose.Types.ObjectId.isValid(id)) {
     return res.status(404).send(`No post found with id ${id}.`)
   };
 
-  const updatedPost = { recipient, message, selectedFile, likes, _id: id}
+  const updatedPost = { recipient, message, selectedFile, url, likes, _id: id}
 
   await PostMessage.findByIdAndUpdate(id, updatePost, {new: true}); // spread old post and add the id property
   res.json(updatedPost);

@@ -41,7 +41,8 @@ const Form = ({currentId, setCurrentId}) => {
     setPostData({
       recipient: '',
       message: '',
-      selectedFile: '' 
+      selectedFile: '',
+      url: '' 
     })
   }
 
@@ -83,13 +84,24 @@ const Form = ({currentId, setCurrentId}) => {
           value={postData.message} 
           onChange={(e) => setPostData({...postData, message: e.target.value})} 
         />
+        <Typography variant='body2'>Select a file or paste image url below: </Typography>
         <div className={classes.fileInput}>
           <FileBase 
             type='file'
             multiple={false}
             onDone={({base64}) => setPostData({...postData, selectedFile: base64})}
-          />        
+          />           
         </div>
+        <TextField 
+          className={classes.input}
+          name='url' 
+          variant='outlined' 
+          placeholder='http://...' 
+          InputLabelProps={{style: {fontSize: '1rem'}}}
+          fullWidth
+          value={postData.url} 
+          onChange={(e) => setPostData({...postData, url: e.target.value})} 
+        />
         <Button 
           className={classes.buttonSubmit} 
           variant='contained'
