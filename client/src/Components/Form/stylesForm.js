@@ -20,14 +20,15 @@ export default makeStyles((theme) => ({
     marginBottom: '2rem'
   },
   input: {
-    backgroundColor: theme.palette.fourth.main
+    backgroundColor: theme.palette.fourth.main,
+    '& input::placeholder': {fontSize: '1rem'}
   },
   fileInput: {
     width: '92%',
     margin: '1rem 0'
   },
   buttonSubmit: {
-    marginBottom: '1rem',
+    margin: '2rem 0 1rem',
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.dark.main
   },

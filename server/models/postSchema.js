@@ -9,6 +9,7 @@ const postSchema = mongoose.Schema(
       name: String,
       creator: String,
       selectedFile: String,
+      url: String,
       likes: {
         type: [String], // array of ids
         default: []

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Container } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -11,8 +11,15 @@ import { themeFresh, themeBreeze, themeSoft } from './Constants/themes';
 
 const App = () => {
 
+  // const [theme, setTheme] = useState(themeFresh);  
+  // const themes = ['Fresh', 'Breeze', 'Soft'];
+
+  // const ThemeSelector = () => {
+  //   const [dropDown, setDropdown]
+  // }
+
   return (
-    <ThemeProvider theme={themeSoft}>
+    <ThemeProvider theme={themeFresh}>
       <CssBaseline>
         <BrowserRouter>
           <Container maxwidth="lg">
