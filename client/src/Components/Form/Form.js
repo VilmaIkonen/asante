@@ -11,7 +11,7 @@ const postInitialState = {recipient: '', message: '', selectedFile: ''};
 
 const Form = ({currentId, setCurrentId}) => {
   
-  const [ postData, setPostData ] = useState(postInitialState);
+  const [postData, setPostData] = useState(postInitialState);
   const classes = useStyles();
   const dispatch = useDispatch();
   // Fetching data for the update of a post and Populate the values of the Form
@@ -55,69 +55,69 @@ const Form = ({currentId, setCurrentId}) => {
         </Typography>
       </Paper>
     )
+  } else {
+    return (
+      <Paper className={classes.paper} elevation={5}>
+        <form autoComplete='off' className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}> 
+          <Typography className={classes.heading} variant='h3'>{currentId ? 'Edit the' : 'Create a'} message</Typography>
+          <TextField
+            className={classes.input}
+            required
+            name='recipient' 
+            variant='outlined' 
+            label='To' 
+            InputLabelProps={{style: {fontSize: '1rem'}}}
+            fullWidth 
+            value={postData.recipient} 
+            onChange={(e) => setPostData({...postData, recipient: e.target.value})} 
+          />
+          <TextField 
+            className={classes.input}
+            required
+            name='message' 
+            variant='outlined' 
+            label='Message' 
+            InputLabelProps={{style: {fontSize: '1rem'}}}
+            fullWidth 
+            multiline={true}
+            value={postData.message} 
+            onChange={(e) => setPostData({...postData, message: e.target.value})} 
+          />
+          <Typography variant='body2'>Select a file or paste image url below: </Typography>
+          <div className={classes.fileInput}>
+            <FileBase 
+              type='file'
+              multiple={false}
+              onDone={({base64}) => setPostData({...postData, selectedFile: base64})}
+            />           
+          </div>
+          <TextField 
+            className={classes.input}
+            name='url' 
+            variant='outlined' 
+            placeholder='http://...' 
+            fullWidth
+            value={postData.url} 
+            onChange={(e) => setPostData({...postData, url: e.target.value})} 
+          />
+          <Button 
+            className={classes.buttonSubmit} 
+            variant='contained'
+            size='large'
+            type='submit'
+            fullWidth>Submit
+          </Button>
+          <Button 
+            className={classes.buttonClear}
+            variant='contained'
+            size='large'
+            onClick={clear}
+            fullWidth>Clear
+          </Button>
+        </form>
+      </Paper>
+    )
   }
-
-  return (
-    <Paper className={classes.paper} elevation={5}>
-      <form autoComplete='off' className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}> 
-        <Typography className={classes.heading} variant='h3'>{currentId ? 'Edit the' : 'Create a'} message</Typography>
-        <TextField
-          className={classes.input}
-          required
-          name='recipient' 
-          variant='outlined' 
-          label='To' 
-          InputLabelProps={{style: {fontSize: '1rem'}}}
-          fullWidth 
-          value={postData.recipient} 
-          onChange={(e) => setPostData({...postData, recipient: e.target.value})} 
-        />
-        <TextField 
-          className={classes.input}
-          required
-          name='message' 
-          variant='outlined' 
-          label='Message' 
-          InputLabelProps={{style: {fontSize: '1rem'}}}
-          fullWidth 
-          multiline={true}
-          value={postData.message} 
-          onChange={(e) => setPostData({...postData, message: e.target.value})} 
-        />
-        <Typography variant='body2'>Select a file or paste image url below: </Typography>
-        <div className={classes.fileInput}>
-          <FileBase 
-            type='file'
-            multiple={false}
-            onDone={({base64}) => setPostData({...postData, selectedFile: base64})}
-          />           
-        </div>
-        <TextField 
-          className={classes.input}
-          name='url' 
-          variant='outlined' 
-          placeholder='http://...' 
-          fullWidth
-          value={postData.url} 
-          onChange={(e) => setPostData({...postData, url: e.target.value})} 
-        />
-        <Button 
-          className={classes.buttonSubmit} 
-          variant='contained'
-          size='large'
-          type='submit'
-          fullWidth>Submit
-        </Button>
-        <Button 
-          className={classes.buttonClear}
-          variant='contained'
-          size='large'
-          onClick={clear}
-          fullWidth>Clear
-        </Button>
-      </form>
-    </Paper>
-  )
 }
 
 export default Form;
