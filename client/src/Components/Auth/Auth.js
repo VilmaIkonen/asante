@@ -79,7 +79,7 @@ const Auth = () => {
               </>
             )} 
             <Input name='email' label='Email address' handleChange={handleChange} type='email'/>
-            <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword} />
+            <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/>
             {isSignUp ? <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type='password'/> : null}
           </Grid>           
           <Button type='submit' fullWidth variant='contained' size='large' className={classes.submit}>
