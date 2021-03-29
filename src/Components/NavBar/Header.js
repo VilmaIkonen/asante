@@ -10,7 +10,7 @@ const Header = () => {
   // setting user with the info from authReducer ('profile'), fetching the actual user info from local storage
 
   return (  
-    <AppBar className={classes.appBar} position="static">
+    <Appar className={classes.appBar} position="static">
     <div className={classes.brandContainer}>
       <img className={classes.logo} src={logo} alt='logo'></img>
       <Typography 
