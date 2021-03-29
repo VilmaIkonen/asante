@@ -3,12 +3,10 @@
 Noteboard app for thanking or congratulating collegues and team members.
 
 ## Technologies used
-Built with:
+Frontend built with:
 
 - React
 - Redux
-- Node
-- MongoDB
 - Material-UI
 
 
