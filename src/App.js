@@ -20,7 +20,7 @@ const App = () => {
             <Switch>
               <Route path='/' exact>
                 <Header/>
-                <SubHeader/>
+                <Subeader/>
                 <Home/>
               </Route>
               <Route path='/auth' exact>
