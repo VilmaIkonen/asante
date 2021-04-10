@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
   },
   paper: {
     padding: theme.spacing(2),
-    backgroundColor: theme.palette.primary.light30,
+    backgroundColor: theme.palette.primary.light,
     color: theme.palette.third.main
   },
   form: {

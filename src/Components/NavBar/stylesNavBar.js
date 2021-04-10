@@ -3,7 +3,8 @@ import { makeStyles } from '@material-ui/core';
 export default makeStyles((theme) => ({
   appBar: {
     borderRadius: 5,
-    margin: '2rem 0',    
+    margin: '2rem 0',
+    backgroundColor: theme.palette.fourth.main
   },
   brandContainer: {
     display: 'flex',
@@ -13,12 +14,12 @@ export default makeStyles((theme) => ({
     marginTop: '2rem'
   },
   heading: {
-    color: theme.palette.fourth.main,
+    color: theme.palette.primary.dark,
     paddingTop: '1rem',
     textDecoration: 'none'
   },
   heading2: {
-    color: theme.palette.fourth.main,
+    color: theme.palette.primary.main,
     padding: '1rem',    
   },
   toolbar: {
@@ -40,17 +41,31 @@ export default makeStyles((theme) => ({
   },
   avatar: {
     color: theme.palette.third.main,
-    backgroundColor: theme.palette.secondary.light50,
-    fontWeight: 400    
+    backgroundColor: theme.palette.secondary.dark,
+    fontWeight: 500,
+    fontSize: '1.6rem',
+    padding: '1.6rem'
   },
   signin: {
+    borderRadius: '10px',
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.dark.main,
-    fontWeight: 600
+    fontWeight: 700,
+    padding: '.8rem 1.6rem',
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.dark,
+      color: theme.palette.dark.main
+    }
   },
   logout: {
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.dark.main,
-    fontWeight: 600
+    borderRadius: '10px',
+    backgroundColor: theme.palette.primary.dark,
+    color: theme.palette.light.main,
+    fontWeight: 800, 
+    padding: '.8rem 1.6rem',
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.dark,
+      color: theme.palette.dark.main
+    }
   }
 }));

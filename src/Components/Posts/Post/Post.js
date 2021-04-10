@@ -41,7 +41,7 @@ const Post = ({post, setCurrentId}) => {
       </div>
       <CardContent className={classes.container}>
         <Typography className={classes.recipient} variant="h4">To: {post.recipient}</Typography>  
-        <Typography className={classes.message} variant="body2">{post.message}</Typography>       
+        <Typography className={classes.message} variant="body1">{post.message}</Typography>       
         <Typography className={classes.creator} variant="h5">BR, {post.name}</Typography>
         <CardActions className={classes.cardActions}>
 
