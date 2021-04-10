@@ -61,29 +61,36 @@ const Form = ({currentId, setCurrentId}) => {
         <form autoComplete='off' className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}> 
           <Typography className={classes.heading} variant='h3'>{currentId ? 'Edit the' : 'Create a'} message</Typography>
           <TextField
+            variant='outlined'
             className={classes.input}
             required
-            name='recipient' 
-            variant='outlined' 
+            name='recipient'
             label='To' 
-            InputLabelProps={{style: {fontSize: '1rem'}}}
             fullWidth 
             value={postData.recipient} 
             onChange={(e) => setPostData({...postData, recipient: e.target.value})} 
           />
           <TextField 
+            variant='outlined'
             className={classes.input}
             required
             name='message' 
-            variant='outlined' 
-            label='Message' 
-            InputLabelProps={{style: {fontSize: '1rem'}}}
+            label='Message'
             fullWidth 
             multiline={true}
             value={postData.message} 
             onChange={(e) => setPostData({...postData, message: e.target.value})} 
           />
-          <Typography variant='body2'>Select a file or paste image url below: </Typography>
+          <Typography variant='body2'>Paste image url below or select a file: </Typography>
+          <TextField 
+            variant='outlined'
+            className={classes.input}
+            name='url'  
+            placeholder='http://...' 
+            fullWidth
+            value={postData.url} 
+            onChange={(e) => setPostData({...postData, url: e.target.value})} 
+          />
           <div className={classes.fileInput}>
             <FileBase 
               type='file'
@@ -91,29 +98,21 @@ const Form = ({currentId, setCurrentId}) => {
               onDone={({base64}) => setPostData({...postData, selectedFile: base64})}
             />           
           </div>
-          <TextField 
-            className={classes.input}
-            name='url' 
-            variant='outlined' 
-            placeholder='http://...' 
-            fullWidth
-            value={postData.url} 
-            onChange={(e) => setPostData({...postData, url: e.target.value})} 
-          />
+
           <Button 
             className={classes.buttonSubmit} 
             variant='contained'
             size='large'
             type='submit'
-            fullWidth>Submit
-          </Button>
+            fullWidth
+            disableElevation='true'>Submit</Button>
           <Button 
             className={classes.buttonClear}
             variant='contained'
             size='large'
             onClick={clear}
-            fullWidth>Clear
-          </Button>
+            fullWidth
+            disableElevation='true'>Clear</Button>
         </form>
       </Paper>
     )

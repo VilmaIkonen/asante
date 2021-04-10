@@ -21,20 +21,36 @@ export default makeStyles((theme) => ({
   },
   input: {
     backgroundColor: theme.palette.fourth.main,
-    '& input::placeholder': {fontSize: '1rem'}
+    borderRadius: '15px',
+    border: 'none',
+    '& input::placeholder': {
+      fontSize: '1rem', 
+      padding:'.5rem'
+    }
   },
   fileInput: {
     width: '92%',
-    margin: '1rem 0'
   },
   buttonSubmit: {
+    borderRadius: '10px',
     margin: '2rem 0 1rem',
+    padding: '.8rem 1.6rem',
     backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.dark.main
+    color: theme.palette.dark.main,
+    '&:hover': {
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.light.main
+    }
   },
   buttonClear: {
+    borderRadius: '10px',
     marginBottom: '1rem',
-    backgroundColor: theme.palette.fourth.main,
-    color: theme.palette.third.main 
+    padding: '.8rem 1.6rem',
+    backgroundColor: theme.palette.light.main,
+    color: theme.palette.dark.main,
+    '&:hover': {
+      backgroundColor: theme.palette.secondary.dark,
+      color: theme.palette.dark.main
+    }
   }
 }));

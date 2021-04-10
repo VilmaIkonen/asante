@@ -116,7 +116,8 @@ const themeBreeze = createMuiTheme({
     },
     h3: {
       fontFamily: "'Shadows Into Light', cursive",
-      fontSize: '2rem'
+      fontSize: '2rem',
+      fontWeight: 500
     },
     h4: {
       fontFamily: "'Source Sans Pro', sans-serif",
@@ -134,7 +135,8 @@ const themeBreeze = createMuiTheme({
     body2: {
       fontFamily: "'Source Sans Pro', sans-serif",
       fontWeight: 400,
-      fontSize: '1.2rem'
+      fontSize: '1.2rem',
+      marginTop: '1rem'
     },
     button: {
       fontFamily: "'Source Sans Pro', sans-serif",
