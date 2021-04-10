@@ -3,22 +3,22 @@ import { createMuiTheme } from '@material-ui/core/styles';
 const themeFresh = createMuiTheme({
   palette: {
     primary: {
-      light30: '#5fa5364d',
-      light50: '#5fa53680',
+      light: '#5fa5364d',
+      dark: '#5fa53680',
       main: '#5fa536'      
     },
     secondary: {
-      light30: '#e6a3794d',
-      light50: '#e6a37980',
+      light: '#e6a3794d',
+      dark: '#e6a37980',
       main: '#e6a379' 
     },
     third: {
-      light30: '#1919194d',
-      light50: '#19191980',
+      light: '#1919194d',
+      dark: '#19191980',
       main: '#191919'
     },
     fourth: {
-      light50: '#f7f7f780',
+      dark: '#f7f7f780',
       main: '#f7f7f7'
     },
     light: {
@@ -74,29 +74,29 @@ const themeFresh = createMuiTheme({
 const themeBreeze = createMuiTheme({
   palette: {
     primary: {
-      light30: '#459a8e4d',
-      light50: '#459a8e80',
-      main: '#459a8e'      
+      main: '#459a8e',
+      light: '#a2cdc7',
+      dark: '#306c63'           
     },
     secondary: {
-      light30: '#d7f7fc4d',
-      light50: '#d7f7fc80',
-      main: '#d7f7fc' 
+      main: '#d7f7fc',
+      light: '#dff9fd',
+      dark: '#acc6ca'       
     },
     third: {
-      light30: '#0259554d',
-      light50: '#02595580',
-      main: '#025955'
+      main: '#025955',
+      light: '#357a77',
+      dark: '#024744'      
     },
     fourth: {
-      light50: '#f7f7f780',
-      main: '#f7f7f7'
+      main: '#fafafa',
+      dark: '#dedede'      
     },
     light: {
       main: '#ffffff'
     },
     dark: {
-      main: '#015450' 
+      main: '#013230' 
     } 
   },
   typography: {
@@ -106,11 +106,12 @@ const themeBreeze = createMuiTheme({
     },
     h1: {
       fontFamily: "'Shadows Into Light', cursive",
-      fontWeight: 400,
-      fontSize: '7rem'
+      fontWeight: 550,
+      fontSize: '8rem'
     },
     h2: {
       fontFamily: "'Source Sans Pro', sans-serif",
+      fontWeight: 400,
       fontSize: '2.2rem'
     },
     h3: {
@@ -132,7 +133,7 @@ const themeBreeze = createMuiTheme({
     },
     body2: {
       fontFamily: "'Source Sans Pro', sans-serif",
-      fontWeight: 300,
+      fontWeight: 400,
       fontSize: '1.2rem'
     },
     button: {
@@ -145,22 +146,22 @@ const themeBreeze = createMuiTheme({
 const themeSoft = createMuiTheme({
   palette: {
     primary: {
-      light30: '#06234f4d',
-      light50: '#06234f80',
+      light: '#06234f4d',
+      dark: '#06234f80',
       main: '#06234f'      
     },
     secondary: {
-      light30: '#ffc3bc4d',
-      light50: '#ffc3bc80',
+      light: '#ffc3bc4d',
+      dark: '#ffc3bc80',
       main: '#ffc3bc' 
     },
     third: {
-      light30: '#18133e4d',
-      light50: '#18133e80',
+      light: '#18133e4d',
+      dark: '#18133e80',
       main: '#18133e'
     },
     fourth: {
-      light50: '#f7f7f780',
+      dark: '#f7f7f780',
       main: '#f7f7f7'
     },
     light: {
