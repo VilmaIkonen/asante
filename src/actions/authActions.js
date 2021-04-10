@@ -1,9 +1,8 @@
-// "import * as" = import everything from actions as api
 import * as api from '../api/indexAPI'
 import { AUTH } from '../Constants/actionTypes'
 
 // Action creators:
-// if they are async, must use redux-think
+// if they are async, must use redux-thunk
 
 export const signin = (formData, history) => async (dispatch) => {
   try {
