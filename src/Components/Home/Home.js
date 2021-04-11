@@ -4,7 +4,7 @@ import { Container, Grow, Grid } from '@material-ui/core';
 
 import { getPosts } from '../../actions/postActions'
 import useStyles from './stylesHome'
-import Posts from '../Posts/Posts';
+import Posts from './Posts/Posts';
 import Form from '../Form/Form';
 
 const Home = () => {
@@ -22,12 +22,12 @@ const Home = () => {
 
   return (
     <Grow in>
-      <Container>          
+      <Container maxWidth={false}>          
         <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
-          <Grid item xs={12} sm={12} md={9} lg={9}>
+          <Grid item xs={12} md={9}>
             <Posts setCurrentId={setCurrentId}/>
           </Grid>
-          <Grid item xs={12} sm={12} md={3} lg={3}>
+          <Grid item xs={12} md={3}>
             <Form className={classes.form} currentId={currentId} setCurrentId={setCurrentId}/>
           </Grid>
         </Grid>

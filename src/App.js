@@ -17,17 +17,10 @@ const App = () => {
     <ThemeProvider theme={themeBreeze}>
       <CssBaseline>
         <BrowserRouter>
-          <Container>
+          <Container maxWidth={false}>
             <Switch>
-              <Route path='/' exact>
-                <Header/>
-                <SubHeader/>
-                <Home/>
-              </Route>
-              <Route path='/auth' exact>
-                <Header/>
-                <Auth/>
-              </Route>
+              <Route path='/' exact><Header/><SubHeader/><Home/></Route>
+              <Route path='/auth' exact><Header/><Auth/></Route>
             </Switch>
           </Container>
         </BrowserRouter>

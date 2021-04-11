@@ -8,7 +8,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment'; // To set timestamp for the post --> .fromNow --> eg. "5 minutes ago"
 import { useDispatch } from 'react-redux';
 
-import { deletePost, likePost } from '../../../actions/postActions'
+import { deletePost, likePost } from '../../../../actions/postActions'
 
 const Post = ({post, setCurrentId}) => {
   const classes = useStyles();
