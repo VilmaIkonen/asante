@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     },
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     backgroundColor: theme.palette.primary.light,
     color: theme.palette.third.main
   },
@@ -21,12 +21,14 @@ export default makeStyles((theme) => ({
   },
   input: {
     backgroundColor: theme.palette.fourth.main,
-    borderRadius: '15px',
+    borderRadius: '10px',
     border: 'none',
-    '& input::placeholder': {
-      fontSize: '1rem', 
-      padding:'.5rem'
-    }
+    margin: '1rem 0',
+    padding: '0 1rem',
+    fontFamily: "'Source Sans Pro', sans-serif",
+    fontWeight: 400,
+    fontSize: '1.2rem',
+    height: '5vh' 
   },
   fileInput: {
     width: '92%',
