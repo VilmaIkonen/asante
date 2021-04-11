@@ -49,10 +49,10 @@ const SubHeader = () => {
         <Typography className={classes.userName} variant='body1'>{user.result.name}
         </Typography>
       </div>
-      <Button className={classes.logout} variant='contained' onClick={logout}>Logout</Button>
+      <Button className={classes.logout} onClick={logout}>Logout</Button>
       </>
     ) : (
-      <Button className={classes.signin} component={Link} to='/auth' variant='contained'>Sign in</Button>
+      <Button className={classes.signin} component={Link} to='/auth'>Sign in</Button>
     )}
     </Toolbar>
   );

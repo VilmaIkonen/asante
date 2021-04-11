@@ -8,7 +8,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment'; // To set timestamp for the post --> .fromNow --> eg. "5 minutes ago"
 import { useDispatch } from 'react-redux';
 
-import { deletePost, likePost } from '../../../actions/postActions'
+import { deletePost, likePost } from '../../../../actions/postActions'
 
 const Post = ({post, setCurrentId}) => {
   const classes = useStyles();
@@ -41,7 +41,7 @@ const Post = ({post, setCurrentId}) => {
       </div>
       <CardContent className={classes.container}>
         <Typography className={classes.recipient} variant="h4">To: {post.recipient}</Typography>  
-        <Typography className={classes.message} variant="body2">{post.message}</Typography>       
+        <Typography className={classes.message} variant="body1">{post.message}</Typography>       
         <Typography className={classes.creator} variant="h5">BR, {post.name}</Typography>
         <CardActions className={classes.cardActions}>
 

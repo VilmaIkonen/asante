@@ -9,24 +9,18 @@ import SubHeader from './Components/NavBar/SubHeader';
 import Home from './Components/Home/Home';
 import Auth from './Components/Auth/Auth';
 import { themeFresh, themeBreeze, themeSoft } from './Constants/themes';
+import './App.css'
 
 const App = () => {
 
   return (
-    <ThemeProvider theme={themeFresh}>
+    <ThemeProvider theme={themeBreeze}>
       <CssBaseline>
         <BrowserRouter>
-          <Container maxwidth="lg">
+          <Container maxWidth={false}>
             <Switch>
-              <Route path='/' exact>
-                <Header/>
-                <SubHeader/>
-                <Home/>
-              </Route>
-              <Route path='/auth' exact>
-                <Header/>
-                <Auth/>
-              </Route>
+              <Route path='/' exact><Header/><SubHeader/><Home/></Route>
+              <Route path='/auth' exact><Header/><Auth/></Route>
             </Switch>
           </Container>
         </BrowserRouter>

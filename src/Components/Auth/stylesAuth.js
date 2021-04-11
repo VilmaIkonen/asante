@@ -13,7 +13,7 @@ export default makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     padding: theme.spacing(2),
-    backgroundColor: theme.palette.primary.light30,
+    backgroundColor: theme.palette.primary.light,
     color: theme.palette.third.main
   },
   avatar: {

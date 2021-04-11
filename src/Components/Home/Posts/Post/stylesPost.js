@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
     borderRadius: '.3rem',
     height: '100%',
     position: 'relative',
-    backgroundColor: theme.palette.primary.light30
+    backgroundColor: theme.palette.primary.light
   },
   media: {
     height: 0,
@@ -29,7 +29,8 @@ export default makeStyles((theme) => ({
     color: theme.palette.third.main
   },
   recipient: {
-    marginBottom: '2rem'
+    marginBottom: '2rem',
+    color: theme.palette.dark.main
   },
   message: {
     marginBottom: '1.5rem'
