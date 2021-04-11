@@ -2,21 +2,35 @@ import { makeStyles } from '@material-ui/core';
 
 export default makeStyles((theme) => ({
   appBar: {
-    borderRadius: 5,
-    margin: '2rem 0',
     backgroundColor: theme.palette.fourth.main
   },
   brandContainer: {
     display: 'flex',
     flexDirection: 'row',
-    justifyContent:'space-evenly',
+    justifyContent:'center',
     alignItems: 'center',
-    marginTop: '2rem'
+    marginTop: '2rem',
+    padding: '0 2rem'
+  },
+  [theme.breakpoints.down('sm')]: {
+    brandContainer: {
+    flexDirection: "column",
+    } 
+  },
+  [theme.breakpoints.up('lg')]: {
+    brandContainer: {
+    flexDirection: "column",
+    } 
   },
   heading: {
     color: theme.palette.primary.dark,
     paddingTop: '1rem',
     textDecoration: 'none'
+  },
+  [theme.breakpoints.down('sm')]: {
+    logo: {
+    display: "none",
+    } 
   },
   heading2: {
     color: theme.palette.primary.main,

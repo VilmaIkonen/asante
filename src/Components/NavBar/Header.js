@@ -11,10 +11,10 @@ const Header = () => {
   return (  
     <AppBar elevation='0' className={classes.appBar} position="static">
       <Grid className={classes.brandContainer}>
-        <Grid display={{sm: 'none', md: 'block'}}>
+        <Grid item md={4} lg={12}>
            <img className={classes.logo} src={logo} alt='logo' />
         </Grid>       
-        <Grid>
+        <Grid item md={8} lg={12}>
           <Typography component={Link} to='/' className={classes.heading} variant="h1" align="center">Asante</Typography>   
         </Grid>   
       </Grid>
