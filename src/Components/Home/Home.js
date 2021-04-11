@@ -12,14 +12,10 @@ const Home = () => {
   // Home.js the common parent to Posts and Form. 
   // These are passed to components from here and accepted in components as props
   const [currentId, setCurrentId] = useState(0);
-
-  // Styling w MUI and styles file. Connected to component via "classname"
   const classes = useStyles(); 
-
-  // Allows dispatch of redux actions
   const dispatch = useDispatch(); 
 
-  // useDispatch hook is used inside useEffect hook
+  // useDispatch (dispatch redux actions) hook is used inside useEffect hook
   useEffect(() => {
     dispatch(getPosts());
   }, [dispatch]);
@@ -28,10 +24,10 @@ const Home = () => {
     <Grow in>
       <Container>          
         <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
-          <Grid item xs={12} sm={7}>
+          <Grid item xs={12} sm={12} md={9} lg={9}>
             <Posts setCurrentId={setCurrentId}/>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} sm={12} md={3} lg={3}>
             <Form className={classes.form} currentId={currentId} setCurrentId={setCurrentId}/>
           </Grid>
         </Grid>

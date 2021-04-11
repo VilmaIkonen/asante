@@ -17,7 +17,7 @@ const App = () => {
     <ThemeProvider theme={themeBreeze}>
       <CssBaseline>
         <BrowserRouter>
-          <Container maxwidth="lg">
+          <Container>
             <Switch>
               <Route path='/' exact>
                 <Header/>

@@ -48,23 +48,23 @@ export default makeStyles((theme) => ({
   },
   signin: {
     borderRadius: '10px',
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.light,
     color: theme.palette.dark.main,
     fontWeight: 700,
     padding: '.8rem 1.6rem',
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.dark,
+    '&:hover': {     
+      backgroundColor: theme.palette.secondary.main,
       color: theme.palette.dark.main
     }
   },
   logout: {
     borderRadius: '10px',
-    backgroundColor: theme.palette.primary.dark,
-    color: theme.palette.light.main,
+    backgroundColor: theme.palette.primary.light,
+    color: theme.palette.dark.main,
     fontWeight: 800, 
     padding: '.8rem 1.6rem',
     '&:hover': {
-      backgroundColor: theme.palette.secondary.dark,
+      backgroundColor: theme.palette.secondary.main,
       color: theme.palette.dark.main
     }
   }
