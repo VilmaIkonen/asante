@@ -1,5 +1,4 @@
 import { makeStyles } from '@material-ui/core';
-// import { COLORS, FONTS } from '../../Constants/styleConstants';
 
 export default makeStyles((theme) => ({
   root: {
@@ -29,14 +28,9 @@ export default makeStyles((theme) => ({
     backgroundColor: theme.palette.fourth.main,
     marginBottom: '2rem'
   },
-  submit: {
-    margin: theme.spacing(1, 0, 2),
-    backgroundColor: theme.palette.secondary.main,
-    color: theme.palette.dark.main
-  },
   googleButton: {
     marginBottom: theme.spacing(2),
-    width: '100%',
-    justifyContent: 'center'
+    backgroundColor: theme.palette.light.main,
+    borderRadius: '10px',
   }
 }));
