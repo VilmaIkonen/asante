@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 import { signup } from '../../actions/authActions'
 import Input from './Input';
+import SubmitButton from '../Buttons/SubmitButton'
 import useStyles from './stylesAuth';
 
 const formInitialState = {firstname: '', lastname: '', email: '', password: '', confirmPassword: ''};
@@ -45,7 +46,7 @@ const SignUp = () => {
           <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/>
           <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/>
         </Grid>           
-        <Button type='submit' fullWidth variant='contained' size='large' className={classes.submit}>Sign up</Button>
+        <SubmitButton name='Sign up'/>
         <Grid container justify='flex-end'>
         </Grid>  
       </form>

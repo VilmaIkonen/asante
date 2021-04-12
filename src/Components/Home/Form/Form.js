@@ -5,11 +5,11 @@ import { Button, Typography, Paper, InputBase } from '@material-ui/core';
 
 import useStyles from './stylesForm';
 import { createPost, updatePost } from '../../../actions/postActions';
-// import HiddenButton from './HiddenButton';
+import SubmitButton from '../../Buttons/SubmitButton';
 
 const postInitialState = {recipient: '', message: '', selectedFile: ''};
 
-const Form = ({currentId, setCurrentId}) => {
+const Form = ({currentId, setCurrentId, name}) => {
   
   const [postData, setPostData] = useState(postInitialState);
   const classes = useStyles();
@@ -97,13 +97,7 @@ const Form = ({currentId, setCurrentId}) => {
             />           
           </div>
 
-          <Button 
-            className={classes.buttonSubmit} 
-            variant='contained'
-            size='large'
-            type='submit'
-            fullWidth
-            disableElevation='true'>Submit</Button>
+          <SubmitButton name='Submit'/>
           <Button 
             className={classes.buttonClear}
             variant='contained'

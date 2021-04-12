@@ -7,6 +7,8 @@ import { useHistory } from 'react-router-dom';
 
 import { signin } from '../../actions/authActions'
 import Input from './Input';
+import googleIcon from '../../images/btn_google_light_normal_ios.svg'
+import SubmitButton from '../Buttons/SubmitButton'
 import useStyles from './stylesAuth';
 import { AUTH } from '../../Constants/actionTypes'
 
@@ -62,14 +64,18 @@ const SignIn = () => {
           <Input name='email' label='Email address' handleChange={handleChange} type='email'/>
           <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/>
         </Grid>           
-        <Button type='submit' fullWidth variant='contained' size='large' className={classes.submit}>Sign in</Button>
-        <GoogleLogin 
+        <SubmitButton name='Sign in'/>
+        <GoogleLogin
           clientId='new client id, old one deleted after exposure'  
-          className={classes.googleButton}      
+          render={(renderProps) => (
+            <Button className={classes.googleButton} fullWidth onClick={renderProps.onClick}><img src={googleIcon} alt='Google icon'/>
+              Google Sign In
+            </Button>
+          )}
           onSuccess={googleSuccess}
           onFailure={googleFailure}
           cookiePolicy='single_host_origin'
-        /> 
+        />
         <Grid container justify='flex-end'>
         </Grid>  
       </form>
