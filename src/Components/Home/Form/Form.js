@@ -90,7 +90,6 @@ const Form = ({currentId, setCurrentId, name}) => {
               onDone={({base64}) => setPostData({...postData, selectedFile: base64})}
             />           
           </div>
-
           <SubmitButton name='Submit'/>
           <Button 
             className={classes.buttonClear}

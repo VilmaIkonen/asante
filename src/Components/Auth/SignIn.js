@@ -59,14 +59,14 @@ const SignIn = () => {
             name='email' 
             onChange={handleChange} 
             type='email'
-            required='true'
+            required
             autoFocus='true'/>
           <InputLarge 
             placeholder='Password'
             name='password' 
             onChange={handleChange} 
             type='password'
-            required='true'
+            required
             />
         </Grid>           
         <SubmitButton name='Sign in'/>

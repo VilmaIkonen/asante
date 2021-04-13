@@ -40,29 +40,34 @@ const SignUp = () => {
             name='firstname' 
             placeholder='First name' 
             onChange={handleChange}
+            required
           />
           <InputLarge 
             name='lastname' 
             placeholder='Last name' 
             onChange={handleChange}
+            required
           />      
           <InputLarge 
             name='email' 
             placeholder='Email address' 
             onChange={handleChange} 
             type='email'
+            required
           />
           <InputLarge 
             name='password' 
             placeholder='Password' 
             onChange={handleChange} 
             type='password'
+            required
           />
           <InputLarge 
             name='confirmPassword' 
             placeholder='Repeat password' 
             onChange={handleChange} 
             type='password'
+            required
           />
         </Grid>           
         <SubmitButton name='Sign up'/>

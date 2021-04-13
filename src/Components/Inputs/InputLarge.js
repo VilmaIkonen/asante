@@ -1,6 +1,4 @@
-import { InputBase, InputAdornment, IconButton } from '@material-ui/core';
-import Visibility from '@material-ui/icons/Visibility';  
-import VisibilityOff from '@material-ui/icons/VisibilityOff'; 
+import { InputBase } from '@material-ui/core';
 import useStyles from './stylesInputLarge';
 
 const InputLarge = ({required, name, label, type, placeholder, value, onChange,  multiline, autoFocus}) => {
