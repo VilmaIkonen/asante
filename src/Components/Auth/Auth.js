@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Avatar, Container, Button, Paper } from '@material-ui/core';
 import LockOutLinedIcon from '@material-ui/icons/LockOutlined';
 
-import SignIn from './SignIn'
-import SignUp from './SignUp'
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 import useStyles from './stylesAuth';
 
 const Auth = () => {
@@ -22,20 +22,10 @@ const Auth = () => {
       <Avatar className={classes.avatar}>
         <LockOutLinedIcon />
       </Avatar>
-        {isSignUp 
-        ?        
-        <>
-          <SignUp/>   
-          <Button onClick={switchMode}>{isSignUp ? 'Already have an account? Sign in!' : "Don't have an account yet? Sign up!" }</Button>
-        </>
-        : 
-        <>
-          <SignIn/> 
-          <Button onClick={switchMode}>
+        {isSignUp ? <SignUp/> : <SignIn/>}        
+        <Button onClick={switchMode}>
           {isSignUp ? 'Already have an account? Sign in!' : "Don't have an account yet? Sign up!" }
-          </Button>
-        </>     
-        }      
+        </Button>    
       </Paper>
    </Container>
   );

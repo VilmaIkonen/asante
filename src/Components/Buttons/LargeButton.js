@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
-import useStyles from './stylesSubmitButton';
+import useStyles from './stylesLargeButton';
 
-const SubmitButton = ({onClick, icon, name}) => {
+const LargeButton = ({onClick, icon, name}) => {
 
   const classes = useStyles();
 
@@ -18,4 +18,4 @@ const SubmitButton = ({onClick, icon, name}) => {
   );
 };
 
-export default SubmitButton;
+export default LargeButton;

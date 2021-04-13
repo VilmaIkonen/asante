@@ -19,18 +19,5 @@ export default makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
     color: theme.palette.dark.main
-  },
-  form: {
-    width: '100%',
-    marginTop: theme.spacing(3),
-  },
-  input: {
-    backgroundColor: theme.palette.fourth.main,
-    marginBottom: '2rem'
-  },
-  googleButton: {
-    marginBottom: theme.spacing(2),
-    backgroundColor: theme.palette.light.main,
-    borderRadius: '10px',
   }
 }));
