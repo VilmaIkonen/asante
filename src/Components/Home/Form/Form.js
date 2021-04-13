@@ -6,6 +6,7 @@ import { Button, Typography, Paper, InputBase } from '@material-ui/core';
 import useStyles from './stylesForm';
 import { createPost, updatePost } from '../../../actions/postActions';
 import SubmitButton from '../../Buttons/SubmitButton';
+import InputLarge from '../../Inputs/InputLarge'
 
 const postInitialState = {recipient: '', message: '', selectedFile: ''};
 
@@ -60,32 +61,25 @@ const Form = ({currentId, setCurrentId, name}) => {
       <Paper className={classes.paper} elevation={5}>
         <form autoComplete='off' className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}> 
           <Typography className={classes.heading} variant='h3'>{currentId ? 'Edit the' : 'Create a'} message</Typography>
-          <InputBase
-            className={classes.input}
+          <InputLarge
             name='recipient'           
             required
-            fullWidth 
             placeholder='To'   
             value={postData.recipient} 
             onChange={(e) => setPostData({...postData, recipient: e.target.value})} 
           />
-          <InputBase             
-            className={classes.input}           
+          <InputLarge          
             name='message'
             required 
-            fullWidth 
-            placeholder='Message'            
-            InputLabelProps={{style: {fontSize: '1rem'}}}    
+            placeholder='Message' 
             multiline={true}
             value={postData.message} 
             onChange={(e) => setPostData({...postData, message: e.target.value})} 
           />
           <Typography variant='body2'>Paste image url below or select a file: </Typography>
-          <InputBase 
-            className={classes.input}
+          <InputLarge
             name='url'  
             placeholder='http://...'
-            fullWidth
             value={postData.url} 
             onChange={(e) => setPostData({...postData, url: e.target.value})} 
           />
