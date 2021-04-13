@@ -19,17 +19,6 @@ export default makeStyles((theme) => ({
   heading: {
     marginBottom: '2rem'
   },
-  input: {
-    backgroundColor: theme.palette.fourth.main,
-    borderRadius: '10px',
-    border: 'none',
-    margin: '1rem 0',
-    padding: '0 1rem',
-    fontFamily: "'Source Sans Pro', sans-serif",
-    fontWeight: 400,
-    fontSize: '1.2rem',
-    height: '5vh' 
-  },
   fileInput: {
     width: '92%',
   },

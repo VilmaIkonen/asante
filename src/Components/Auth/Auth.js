@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Container, Button, Paper } from '@material-ui/core';
+import { Avatar, Container, Button, Paper } from '@material-ui/core';
+import LockOutLinedIcon from '@material-ui/icons/LockOutlined';
 
 import SignIn from './SignIn'
 import SignUp from './SignUp'
@@ -18,6 +19,9 @@ const Auth = () => {
   return (
     <Container component='main' maxWidth='xs'>
       <Paper className={classes.paper} elevation={3}>
+      <Avatar className={classes.avatar}>
+        <LockOutLinedIcon />
+      </Avatar>
         {isSignUp 
         ?        
         <>

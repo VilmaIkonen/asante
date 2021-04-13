@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Grid, Typography } from '@material-ui/core';
-import LockOutLinedIcon from '@material-ui/icons/LockOutlined';
+import { Button, Grid, Typography } from '@material-ui/core';
 import GoogleLogin from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { signin } from '../../actions/authActions'
-import Input from './Input';
-import googleIcon from '../../images/btn_google_light_normal_ios.svg'
-import SubmitButton from '../Buttons/SubmitButton'
+import { signin } from '../../actions/authActions';
+import googleIcon from '../../images/btn_google_light_normal_ios.svg';
+import SubmitButton from '../Buttons/SubmitButton';
+import InputLarge from '../Inputs/InputLarge';
 import useStyles from './stylesAuth';
-import { AUTH } from '../../Constants/actionTypes'
+import { AUTH } from '../../Constants/actionTypes';
 
 const formInitialState = {email: '', password: ''};
 
@@ -21,9 +20,6 @@ const SignIn = () => {
   const [formData, setFormData] = useState(formInitialState);
   const dispatch = useDispatch();
   const history = useHistory();
-    
-  // previous state needed to toggle between states:
-  const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); 
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -55,14 +51,23 @@ const SignIn = () => {
 
   return (    
     <>
-      <Avatar className={classes.avatar}>
-        <LockOutLinedIcon />
-      </Avatar>
       <Typography variant='h3'>Sign in</Typography>
       <form className={classes.form} onSubmit={handleSubmit}>  
         <Grid container>
-          <Input name='email' label='Email address' handleChange={handleChange} type='email'/>
-          <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/>
+          <InputLarge 
+            placeholder='Email' 
+            name='email' 
+            onChange={handleChange} 
+            type='email'
+            required
+            autoFocus='true'/>
+          <InputLarge 
+            placeholder='Password'
+            name='password' 
+            onChange={handleChange} 
+            type='password'
+            required
+            />
         </Grid>           
         <SubmitButton name='Sign in'/>
         <GoogleLogin
@@ -76,8 +81,6 @@ const SignIn = () => {
           onFailure={googleFailure}
           cookiePolicy='single_host_origin'
         />
-        <Grid container justify='flex-end'>
-        </Grid>  
       </form>
    </>
   );

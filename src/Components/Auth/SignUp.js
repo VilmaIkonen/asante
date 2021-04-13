@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Avatar, Grid, Typography } from '@material-ui/core';
-import LockOutLinedIcon from '@material-ui/icons/LockOutlined';
+import { Grid, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import { signup } from '../../actions/authActions'
-import Input from './Input';
+import InputLarge from '../Inputs/InputLarge';
 import SubmitButton from '../Buttons/SubmitButton'
 import useStyles from './stylesAuth';
 
@@ -34,21 +33,44 @@ const SignUp = () => {
 
   return (
     <>
-      <Avatar className={classes.avatar}>
-        <LockOutLinedIcon />
-      </Avatar>
       <Typography variant='h3'>Sign up</Typography>
       <form className={classes.form} onSubmit={handleSubmit}>  
         <Grid container>
-          <Input name='firstname' label='First name' handleChange={handleChange} fullWidth/>
-          <Input name='lastname' label='Last name' handleChange={handleChange} fullWidth/>      
-          <Input name='email' label='Email address' handleChange={handleChange} type='email'/>
-          <Input name='password' label='Password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/>
-          <Input name='confirmPassword' label='Repeat password' handleChange={handleChange} type={showPassword ? 'text' : 'password'} handleShowPassword={handleShowPassword}/>
+          <InputLarge 
+            name='firstname' 
+            placeholder='First name' 
+            onChange={handleChange}
+            required
+          />
+          <InputLarge 
+            name='lastname' 
+            placeholder='Last name' 
+            onChange={handleChange}
+            required
+          />      
+          <InputLarge 
+            name='email' 
+            placeholder='Email address' 
+            onChange={handleChange} 
+            type='email'
+            required
+          />
+          <InputLarge 
+            name='password' 
+            placeholder='Password' 
+            onChange={handleChange} 
+            type='password'
+            required
+          />
+          <InputLarge 
+            name='confirmPassword' 
+            placeholder='Repeat password' 
+            onChange={handleChange} 
+            type='password'
+            required
+          />
         </Grid>           
         <SubmitButton name='Sign up'/>
-        <Grid container justify='flex-end'>
-        </Grid>  
       </form>
     </>
   );
