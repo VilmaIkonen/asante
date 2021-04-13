@@ -5,7 +5,7 @@ import { Button, Typography, Paper, InputBase } from '@material-ui/core';
 
 import useStyles from './stylesForm';
 import { createPost, updatePost } from '../../../actions/postActions';
-import SubmitButton from '../../Buttons/SubmitButton';
+import LargeButton from '../../Buttons/LargeButton/LargeButton';
 import InputLarge from '../../Inputs/InputLarge'
 
 const postInitialState = {recipient: '', message: '', selectedFile: ''};
@@ -90,7 +90,7 @@ const Form = ({currentId, setCurrentId, name}) => {
               onDone={({base64}) => setPostData({...postData, selectedFile: base64})}
             />           
           </div>
-          <SubmitButton name='Submit'/>
+          <LargeButton name='Submit'/>
           <Button 
             className={classes.buttonClear}
             variant='contained'

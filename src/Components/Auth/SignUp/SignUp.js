@@ -3,10 +3,10 @@ import { Grid, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { signup } from '../../actions/authActions'
-import InputLarge from '../Inputs/InputLarge';
-import SubmitButton from '../Buttons/SubmitButton'
-import useStyles from './stylesAuth';
+import { signup } from '../../../actions/authActions'
+import InputLarge from '../../Inputs/InputLarge';
+import LargeButton from '../../Buttons/LargeButton/LargeButton'
+import useStyles from './stylesSignUp';
 
 const formInitialState = {firstname: '', lastname: '', email: '', password: '', confirmPassword: ''};
 
@@ -70,7 +70,7 @@ const SignUp = () => {
             required
           />
         </Grid>           
-        <SubmitButton name='Sign up'/>
+        <LargeButton name='Sign up'/>
       </form>
     </>
   );
