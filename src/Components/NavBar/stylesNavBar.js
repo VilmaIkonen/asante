@@ -59,27 +59,5 @@ export default makeStyles((theme) => ({
     fontWeight: 500,
     fontSize: '1.6rem',
     padding: '1.6rem'
-  },
-  signin: {
-    borderRadius: '10px',
-    backgroundColor: theme.palette.primary.light,
-    color: theme.palette.dark.main,
-    fontWeight: 700,
-    padding: '.8rem 1.6rem',
-    '&:hover': {     
-      backgroundColor: theme.palette.secondary.main,
-      color: theme.palette.dark.main
-    }
-  },
-  logout: {
-    borderRadius: '10px',
-    backgroundColor: theme.palette.primary.light,
-    color: theme.palette.dark.main,
-    fontWeight: 800, 
-    padding: '.8rem 1.6rem',
-    '&:hover': {
-      backgroundColor: theme.palette.secondary.main,
-      color: theme.palette.dark.main
-    }
   }
 }));

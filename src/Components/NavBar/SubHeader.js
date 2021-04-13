@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import {  Button, Toolbar, Typography, Avatar } from '@material-ui/core';
+import { Toolbar, Button, Typography, Avatar } from '@material-ui/core';
 import { Link, useHistory, useLocation  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 import useStyles from './stylesNavBar';
+import SmallButton from '../Buttons/SmallButton'
 import { LOGOUT } from '../../Constants/actionTypes';
 
 const SubHeader = () => {
@@ -49,10 +50,10 @@ const SubHeader = () => {
         <Typography className={classes.userName} variant='body1'>{user.result.name}
         </Typography>
       </div>
-      <Button className={classes.logout} onClick={logout}>Logout</Button>
+      <SmallButton onClick={logout} name='Logout'/>
       </>
     ) : (
-      <Button className={classes.signin} component={Link} to='/auth'>Sign in</Button>
+      <Link to='/auth' style={{textDecoration: 'none'}}><SmallButton name='Sign in'/></Link>     
     )}
     </Toolbar>
   );
