@@ -3,10 +3,10 @@ import { Grid, Typography } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { signup } from '../../actions/authActions'
-import InputLarge from '../Inputs/InputLarge';
-import LargeButton from '../Buttons/LargeButton'
-import useStyles from './stylesAuth';
+import { signup } from '../../../actions/authActions'
+import InputLarge from '../../Inputs/InputLarge';
+import LargeButton from '../../Buttons/LargeButton/LargeButton'
+import useStyles from './stylesSignUp';
 
 const formInitialState = {firstname: '', lastname: '', email: '', password: '', confirmPassword: ''};
 

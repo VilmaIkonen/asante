@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Avatar, Container, Button, Paper } from '@material-ui/core';
 import LockOutLinedIcon from '@material-ui/icons/LockOutlined';
 
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import SignIn from './SignIn/SignIn';
+import SignUp from './SignUp/SignUp';
 import useStyles from './stylesAuth';
 
 const Auth = () => {

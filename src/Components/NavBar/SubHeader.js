@@ -4,7 +4,7 @@ import { Link, useHistory, useLocation  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';
 import useStyles from './stylesNavBar';
-import SmallButton from '../Buttons/SmallButton'
+import SmallButton from '../Buttons/SmallButton/SmallButton'
 import { LOGOUT } from '../../Constants/actionTypes';
 
 const SubHeader = () => {

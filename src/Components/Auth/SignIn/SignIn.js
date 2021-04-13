@@ -7,12 +7,12 @@ import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import GoogleLogin from 'react-google-login';
 
 import useStyles from './stylesSignIn';
-import { signin } from '../../actions/authActions';
-import googleIcon from '../../images/btn_google_light_normal_ios.svg';
-import LargeButton from '../Buttons/LargeButton';
-import AccordionButton from '../Buttons/AccordionButton'
-import InputLarge from '../Inputs/InputLarge';
-import { AUTH } from '../../Constants/actionTypes';
+import { signin } from '../../../actions/authActions';
+import googleIcon from '../../../images/btn_google_light_normal_ios.svg';
+import LargeButton from '../../Buttons/LargeButton/LargeButton';
+import AccordionButton from '../../Buttons/LargeButton/AccordionButton'
+import InputLarge from '../../Inputs/InputLarge';
+import { AUTH } from '../../../Constants/actionTypes';
 
 const formInitialState = {email: '', password: ''};
 
