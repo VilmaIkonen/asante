@@ -1,7 +1,7 @@
 import { Button } from '@material-ui/core';
 import useStyles from './stylesSmallButton';
 
-const SmallButton = ({onClick, name, component}) => {
+const SmallButton = ({onClick, name}) => {
 
   const classes = useStyles();
 
@@ -10,7 +10,7 @@ const SmallButton = ({onClick, name, component}) => {
       className={classes.buttonSmall}
       variant='contained'
       size='small'
-      disableElevation='true'
+      disableElevation={true}
       onClick={onClick}>{name}</Button>
   );
 };

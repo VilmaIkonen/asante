@@ -12,7 +12,7 @@ const AccordionButton = ({onClick}) => {
       size='large'
       fullWidth
       onClick={onClick}
-      disableElevation='true'>Signin with email</Button>
+      disableElevation={true}>Signin with email</Button>
   );
 };
 

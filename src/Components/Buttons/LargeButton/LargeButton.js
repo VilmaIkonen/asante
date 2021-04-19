@@ -12,7 +12,7 @@ const LargeButton = ({onClick, icon, name}) => {
       size='large'
       type='submit'
       fullWidth
-      disableElevation='true'
+      disableElevation={true}
       onClick={onClick}
       startIcon={icon}>{name}</Button>
   );

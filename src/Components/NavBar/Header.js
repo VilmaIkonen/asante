@@ -9,7 +9,7 @@ const Header = () => {
   const classes = useStyles();
 
   return (  
-    <AppBar elevation='0' className={classes.appBar} position="static">
+    <AppBar elevation={0} className={classes.appBar} position="static">
       <Grid className={classes.brandContainer}>
         <Grid item md={4} lg={12}>
            <img className={classes.logo} src={logo} alt='logo' />

@@ -97,7 +97,7 @@ const Form = ({currentId, setCurrentId, name}) => {
             size='large'
             onClick={clear}
             fullWidth
-            disableElevation='true'>Clear</Button>
+            disableElevation={true}>Clear</Button>
         </form>
       </Paper>
     )
