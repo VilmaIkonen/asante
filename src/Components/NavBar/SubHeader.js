@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Toolbar, Button, Typography, Avatar } from '@material-ui/core';
+import { Toolbar, Typography, Avatar } from '@material-ui/core';
 import { Link, useHistory, useLocation  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import decode from 'jwt-decode';

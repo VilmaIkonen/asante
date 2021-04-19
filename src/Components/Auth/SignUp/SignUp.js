@@ -13,13 +13,9 @@ const formInitialState = {firstname: '', lastname: '', email: '', password: '', 
 const SignUp = () => {
 
   const classes = useStyles();
-  const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState(formInitialState);
   const dispatch = useDispatch();
   const history = useHistory();
-    
-  // previous state needed to toggle between states:
-  const handleShowPassword = () => setShowPassword((prevShowPassword) => !prevShowPassword); 
 
   const handleSubmit = (event) => {
     event.preventDefault();

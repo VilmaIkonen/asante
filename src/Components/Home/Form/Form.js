@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import FileBase from 'react-file-base64';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Typography, Paper, InputBase } from '@material-ui/core';
+import { Button, Typography, Paper } from '@material-ui/core';
 
 import useStyles from './stylesForm';
 import { createPost, updatePost } from '../../../actions/postActions';

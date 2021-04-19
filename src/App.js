@@ -8,7 +8,7 @@ import Header from './Components/NavBar/Header';
 import SubHeader from './Components/NavBar/SubHeader';
 import Home from './Components/Home/Home';
 import Auth from './Components/Auth/Auth';
-import { themeFresh, themeBreeze, themeSoft } from './Constants/themes';
+import { themeBreeze } from './Constants/themes';
 import './App.css'
 
 const App = () => {
