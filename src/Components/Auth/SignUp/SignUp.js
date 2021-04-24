@@ -33,32 +33,33 @@ const SignUp = () => {
       <form className={classes.form} onSubmit={handleSubmit}>  
         <Grid container>
           <InputLarge 
-            name='firstname' 
-            placeholder='First name' 
+            label='First name'
+            name='firstname'
             onChange={handleChange}
             required
           />
           <InputLarge 
-            name='lastname' 
-            placeholder='Last name' 
+            label='Last name'
+            name='lastname'
             onChange={handleChange}
             required
           />      
           <InputLarge 
+            label='Email'
             name='email' 
-            placeholder='Email address' 
             onChange={handleChange} 
             type='email'
             required
           />
           <InputLarge 
-            name='password' 
-            placeholder='Password' 
+            label='Password'
+            name='password'
             onChange={handleChange} 
             type='password'
             required
           />
           <InputLarge 
+            label='Confirm password'
             name='confirmPassword' 
             placeholder='Repeat password' 
             onChange={handleChange} 
