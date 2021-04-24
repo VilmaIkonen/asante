@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // axios instance and base URL:
-const API = axios.create({baseURL: 'http://localhost:5000'});
+const API = axios.create({baseURL: 'https://asante-server.herokuapp.com/'});
 
 // interceptor is axios's equivalent to middleware in Express, function will be called before all request below:
 // token sent back to backend so that backend middleware can verify that user is signed in.
