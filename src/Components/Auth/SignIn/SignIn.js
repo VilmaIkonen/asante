@@ -65,7 +65,7 @@ export default function SignIn() {
         <MuiAccordionSummary component={AccordionButton}/>
         <Grid container>
           <InputLarge 
-            placeholder='Email' 
+            label='Email'
             name='email' 
             onChange={handleChange} 
             type='email'
@@ -73,6 +73,7 @@ export default function SignIn() {
             autoFocus='true'
           />
           <InputLarge 
+            label='Password'
             placeholder='Password'
             name='password' 
             onChange={handleChange} 

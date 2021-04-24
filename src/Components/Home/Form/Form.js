@@ -61,28 +61,28 @@ const Form = ({currentId, setCurrentId, name}) => {
       <Paper className={classes.paper} elevation={5}>
         <form autoComplete='off' className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}> 
           <Typography className={classes.heading} variant='h3'>{currentId ? 'Edit the' : 'Create a'} message</Typography>
-          <InputLarge
-            name='recipient'           
+          <InputLarge   
+            label='To'       
+            name='recipient'
             required
-            placeholder='To'   
             value={postData.recipient} 
             onChange={(e) => setPostData({...postData, recipient: e.target.value})} 
           />
-          <InputLarge          
+          <InputLarge   
+            label='Message'       
             name='message'
             required 
-            placeholder='Message' 
             multiline={true}
             value={postData.message} 
             onChange={(e) => setPostData({...postData, message: e.target.value})} 
-          />
-          <Typography variant='body2'>Paste image url below or select a file: </Typography>
+          />         
+          <Typography variant='body2'>Paste image url below or select a file: </Typography>         
           <InputLarge
+            label='http://...'
             name='url'  
-            placeholder='http://...'
             value={postData.url} 
             onChange={(e) => setPostData({...postData, url: e.target.value})} 
-          />
+          />     
           <div className={classes.fileInput}>
             <FileBase 
               type='file'
