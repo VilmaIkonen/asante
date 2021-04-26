@@ -19,14 +19,14 @@ const formInitialState = {email: '', password: ''};
 export default function SignIn() {
 
   const classes = useStyles();
-  const [openAcc, setOpenAcc] = useState(false);
+  const [openAccord, setOpenAccord] = useState(false);
   const [formData, setFormData] = useState(formInitialState);
   const dispatch = useDispatch();
   const history = useHistory();
 
    // Toggling accordion
-  const handleChangeAcc= (panel) => (event, newOpenAcc) => {
-    setOpenAcc(newOpenAcc ? panel : false);
+  const handleChangeAcc= (panel) => (event, newopenAccord) => {
+    setOpenAccord(newopenAccord ? panel : false);
   }; 
 
   // Form submission:
@@ -61,7 +61,7 @@ export default function SignIn() {
     <>  
     <Typography variant='h3'>Sign in</Typography> 
     <form className={classes.form} onSubmit={handleSubmit}>    
-      <MuiAccordion className={classes.accordion} openAcc={openAcc === 'panel'} onChange={handleChangeAcc('panel')}elevation={0}>
+      <MuiAccordion className={classes.accordion} openAccord={openAccord === 'panel'} onChange={handleChangeAcc('panel')}elevation={0}>
         <MuiAccordionSummary component={AccordionButton}/>
         <Grid container>
           <InputLarge 
