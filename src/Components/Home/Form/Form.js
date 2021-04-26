@@ -8,7 +8,7 @@ import { createPost, updatePost } from '../../../actions/postActions';
 import LargeButton from '../../Buttons/LargeButton/LargeButton';
 import InputLarge from '../../Inputs/InputLarge'
 
-const postInitialState = {recipient: '', message: '', selectedFile: ''};
+const postInitialState = {recipient: '', message: '', selectedFile: '', url: ''};
 
 const Form = ({currentId, setCurrentId, name}) => {
   
