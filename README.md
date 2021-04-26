@@ -9,7 +9,9 @@ Frontend built with:
 - Redux
 - Material-UI
 
+Backend in repository 'asante-server'
+
 
 ## Live page
-... Coming soon ...
+https://asanteapp.netlify.app/
 
