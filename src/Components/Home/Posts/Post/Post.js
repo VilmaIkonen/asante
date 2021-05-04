@@ -18,7 +18,7 @@ const Post = ({post, setCurrentId}) => {
   // logic for handling likes:
   const Likes = () => {
     if (post.likes.length > 0) {
-      return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
+      return post.likes.find((like) => like === user?.result?._id)
       ? (
         <><ThumbUpAltIcon fontSize="small" />&nbsp;{post.likes.length > 2 ? `You and ${post.likes.length - 1} others` : `${post.likes.length} like${post.likes.length > 1 ? 's' : ''}` }</>
       ) : (
@@ -35,7 +35,7 @@ const Post = ({post, setCurrentId}) => {
         <Typography variant="body2">{moment(post.createdAt).fromNow()}</Typography>
 
         {/* Enable/dispable edit based on user login */}
-        {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) ? (          
+        { user?.result?._id === post?.creator ? (          
             <Button  style={{color: 'white'}} size="small" onClick={() => setCurrentId(post._id)}><MoreHorizIcon fontSize="default" />Edit</Button>         
         ) : null } 
       </div>
@@ -46,10 +46,10 @@ const Post = ({post, setCurrentId}) => {
         <CardActions className={classes.cardActions}>
 
           {/* Enable/dispable liking based on user login */}
-          <Button className={classes.likeDelete} size="small" onClick={() => dispatch(likePost(post._id))} disabled={(!user?.result || user?.result?.googleId === post?.creator || user?.result?._id === post?.creator)}><Likes/></Button>
+          <Button className={classes.likeDelete} size="small" onClick={() => dispatch(likePost(post._id))} disabled={(!user?.result || user?.result?._id === post?.creator)}><Likes/></Button>
 
           {/* Enable/dispable delete based on user login */}
-          {(user?.result?.googleId === post?.creator || user?.result?._id === post?.creator) ? (
+          { user?.result?._id === post?.creator ? (
             <Button className={classes.likeDelete} size="small" onClick={() => dispatch(deletePost(post._id))}><DeleteIcon fontSize="small"/> &nbsp;Delete</Button>
           ) : null }
     
