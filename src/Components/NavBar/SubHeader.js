@@ -53,7 +53,7 @@ const SubHeader = () => {
       <SmallButton onClick={logout} name='Logout'/>
       </>
     ) : (
-      <Link to='/auth' style={{textDecoration: 'none'}}><SmallButton name='Sign in'/></Link>     
+      <Link to='/auth' style={{textDecoration: 'none'}}><SmallButton name='Sign in/ Sign up'/></Link>     
     )}
     </Toolbar>
   );
