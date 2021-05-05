@@ -52,7 +52,7 @@ const Form = ({currentId, setCurrentId, name}) => {
     return (
       <Paper className={classes.paper}>
         <Typography variant='h3' align='center'>
-          If you want to create or like a post, please sign in
+          If you want to create or like a post, please sign in or sign up
         </Typography>
       </Paper>
     )
