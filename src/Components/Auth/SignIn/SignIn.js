@@ -6,6 +6,7 @@ import useStyles from './stylesSignIn';
 import { signin } from '../../../actions/authActions';
 import LargeButton from '../../Buttons/LargeButton/LargeButton';
 import InputLarge from '../../Inputs/InputLarge';
+import Validator from '../../../services/validator'
 
 const formInitialState = {email: '', password: ''};
 
@@ -13,12 +14,24 @@ export default function SignIn() {
 
   const classes = useStyles();
   const [formData, setFormData] = useState(formInitialState);
+  const [error, setError] = useState([])
   const dispatch = useDispatch();
   const history = useHistory();
+
+  const [inputs] = useState([
+    { id:'email', label:'Email',  name:'email', type:'email', autoFocus: 'true' },
+    { id:'password', label:'Password',  name:'password', type:'password', autoFocus: 'false' },
+  ])
 
   // Form submission:
   const handleSubmit = (event) => {
     event.preventDefault();
+    setError([])
+    const validation = Validator.signIn(formData)
+    if (validation.length > 0) {
+      setError(validation)
+      return
+    }
     dispatch(signin(formData, history)) //action = signin. formData and history send with it
   }
 
@@ -32,23 +45,32 @@ export default function SignIn() {
     <Typography variant='h3'>Sign in</Typography> 
     <form className={classes.form} onSubmit={handleSubmit}>    
         <Grid container>
-          <InputLarge 
-            label='Email'
-            name='email' 
-            onChange={handleChange} 
-            type='email'
-            required
-            autoFocus='true'
+          {inputs.map((input) => (
+            <InputLarge 
+              key={input.id}
+              id={input.id}
+              label={input.label}
+              name={input.name}           
+              type={input.type}
+              required
+              onChange={handleChange} 
+              autoFocus={input.autoFocus}
+              error={error.includes(input.id)}
           />
-          <InputLarge 
-            label='Password'
-            placeholder='Password'
-            name='password' 
-            onChange={handleChange} 
-            type='password'
-            required
-          />
-        </Grid>           
+          ))}
+            {error && (
+              <p
+                style={{
+                    color: 'red',
+                    padding: '0',
+                    fontSize: '12px',
+                    marginBottom: '0.1rem',
+                }}
+                className="d-flex flex-row justify-content-center">
+                {error[0]}
+              </p>
+            )}
+           </Grid>           
         <LargeButton name='Sign in'/>      
      </form>  
     </> 
