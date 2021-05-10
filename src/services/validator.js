@@ -6,9 +6,9 @@ class Validator {
 		if (!formObject.email) {
 			error.push('please enter your email')
 		} else {
-			const test = /^[^\s@]+@[^\s@]+$/.test(formObject.email)
+			const test = /[^@]+@[^\.]+\..+/.test(formObject.email)
 			if (!test) {
-				error.push('Email must include an @')
+				error.push('Please enter a valid email address')
 			}
 		}
 		if (!formObject.password || formObject.password.length < 8) {
