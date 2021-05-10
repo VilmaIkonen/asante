@@ -5,4 +5,9 @@ export default makeStyles((theme) => ({
     width: '100%',
     marginTop: theme.spacing(3)
   }, 
+  customError: {
+    color: theme.palette.accent.main,
+    padding: '0 0 0 1rem',
+    marginTop: '0'
+  }  
 }));

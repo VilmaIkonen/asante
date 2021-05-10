@@ -26,7 +26,7 @@ const themeFresh = createMuiTheme({
     },
     dark: {
       main: '#000000' 
-    } 
+    }
   },
   typography: {
     fontFamily: {
@@ -97,7 +97,10 @@ const themeBreeze = createMuiTheme({
     },
     dark: {
       main: '#013230' 
-    } 
+    },
+    accent: {
+      main: '#92025d'
+    }  
   },
   typography: {
     fontFamily: {
