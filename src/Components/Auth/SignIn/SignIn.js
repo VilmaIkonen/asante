@@ -59,16 +59,9 @@ export default function SignIn() {
           />
           ))}
             {error && (
-              <p
-                style={{
-                    color: 'red',
-                    padding: '0',
-                    fontSize: '12px',
-                    marginBottom: '0.1rem',
-                }}
-                className="d-flex flex-row justify-content-center">
+              <h5 className={classes.customError}>
                 {error[0]}
-              </p>
+              </h5>
             )}
            </Grid>           
         <LargeButton name='Sign in'/>      
