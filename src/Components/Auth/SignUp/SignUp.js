@@ -7,7 +7,7 @@ import { signup } from '../../../actions/authActions'
 import InputLarge from '../../Inputs/InputLarge';
 import LargeButton from '../../Buttons/LargeButton/LargeButton'
 import useStyles from './stylesSignUp';
-import Validator from '../../../services/validator'
+import { signUp } from '../../../services/validation'
 
 const formInitialState = {firstname: '', lastname: '', email: '', password: '', confirmPassword: ''};
 
@@ -30,7 +30,7 @@ const SignUp = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setError([])
-    const validation = Validator.signUp(formData)
+    const validation = signUp(formData)
     if (validation.length > 0) {
       setError(validation)
       return

@@ -6,7 +6,7 @@ import useStyles from './stylesSignIn';
 import { signin } from '../../../actions/authActions';
 import LargeButton from '../../Buttons/LargeButton/LargeButton';
 import InputLarge from '../../Inputs/InputLarge';
-import Validator from '../../../services/validator'
+import { signIn } from '../../../services/validation'
 
 const formInitialState = {email: '', password: ''};
 
@@ -27,7 +27,7 @@ export default function SignIn() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setError([])
-    const validation = Validator.signIn(formData)
+    const validation = signIn(formData)
     if (validation.length > 0) {
       setError(validation)
       return
