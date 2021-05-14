@@ -9,15 +9,18 @@ export const CustomThemeContext = createContext({
 
 const CustomThemeProvider = props => {
 	const { children } = props;
+	console.log(props)
 
 	// Get current theme from localStorage
-	const currentTheme = localStorage.getItem('appTheme') || 'themeBreeze';
+	const currentTheme = localStorage.getItem('appTheme') || ('themeBreeze');
+	console.log(currentTheme)
 
 	// State to hold selected theme
 	const [ themeName, _setThemeName ] = useState(currentTheme);
 
 	// Retrieve theme object by theme name
 	const theme = getTheme(themeName);
+	console.log(theme)
 
 	// Wrap _setThemeName to store new theme names in localStorage
 	const setThemeName = name => {

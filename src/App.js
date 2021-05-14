@@ -6,14 +6,12 @@ import Header from './Components/NavBar/Header';
 import SubHeader from './Components/NavBar/SubHeader';
 import Home from './Components/Home/Home';
 import Auth from './Components/Auth/Auth';
-import themeBreeze from './themes/themes/themeBreeze';
 import CustomThemeProvider from './themes/ThemeComponents/CustomThemeProvider'
-import './App.css'
 
 const App = () => {
 
   return (
-    <CustomThemeProvider theme={themeBreeze}>
+    <CustomThemeProvider>
       <CssBaseline>
         <BrowserRouter>
           <Container maxWidth={false}>

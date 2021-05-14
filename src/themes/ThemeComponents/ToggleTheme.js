@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { CustomThemeContext } from './CustomThemeProvider';
-import PaletteIcon from '@material-ui/icons/Palette';
-import StarIcon from '@material-ui/icons/Star';
 
 export default function ThemeToggle() {
 
@@ -25,11 +23,11 @@ export default function ThemeToggle() {
 			size='small'
 			onChange={handleThemeChange}>
 			<ToggleButton value='themeSoft'>
-				<PaletteIcon />
+				{'Change theme'}
 			</ToggleButton>
-			<ToggleButton value='fluor'>
-				<StarIcon />
-			</ToggleButton>
+			{/* <ToggleButton value='themeDark'>
+			{'Change to theme "Dark"'}
+			</ToggleButton> */}
 		</ToggleButtonGroup>
 	);
 }

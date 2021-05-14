@@ -4,22 +4,22 @@ const themeSoft = createMuiTheme({
   palette: {
     primary: {
       light: '#06234f4d',
-      dark: '#06234f80',
+      dark: '#06234f',
       main: '#06234f'      
     },
     secondary: {
       light: '#ffc3bc4d',
-      dark: '#ffc3bc80',
+      dark: '#ffc3bc',
       main: '#ffc3bc' 
     },
     third: {
       light: '#18133e4d',
-      dark: '#18133e80',
+      dark: '#18133e',
       main: '#18133e'
     },
     fourth: {
-      dark: '#f7f7f780',
-      main: '#f7f7f7'
+      main: '#fafafa',
+      dark: '#dedede'
     },
     light: {
       main: '#ffffff'
@@ -35,16 +35,18 @@ const themeSoft = createMuiTheme({
     },
     h1: {
       fontFamily: "'Shadows Into Light', cursive",
-      fontWeight: 400,
-      fontSize: '7rem'
+      fontWeight: 550,
+      fontSize: '8rem'
     },
     h2: {
       fontFamily: "'Source Sans Pro', sans-serif",
+      fontWeight: 400,
       fontSize: '2.2rem'
     },
     h3: {
       fontFamily: "'Shadows Into Light', cursive",
-      fontSize: '2rem'
+      fontSize: '2rem',
+      fontWeight: 500
     },
     h4: {
       fontFamily: "'Source Sans Pro', sans-serif",
@@ -61,8 +63,9 @@ const themeSoft = createMuiTheme({
     },
     body2: {
       fontFamily: "'Source Sans Pro', sans-serif",
-      fontWeight: 300,
-      fontSize: '1.2rem'
+      fontWeight: 400,
+      fontSize: '1.2rem',
+      marginTop: '1rem'
     },
     button: {
       fontFamily: "'Source Sans Pro', sans-serif",

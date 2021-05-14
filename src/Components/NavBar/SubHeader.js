@@ -56,10 +56,7 @@ const SubHeader = () => {
     ) : (
       <Link to='/auth' style={{textDecoration: 'none'}}><SmallButton name='Sign in/ Sign up'/></Link>     
     )}
-    <Typography variant='h5' component='h2' gutterBottom>
-						{'Click the toggle button to switch between themes.'}
-					</Typography>
-          <ToggleTheme/>
+      <ToggleTheme/>
     </Toolbar>
   );
 };
