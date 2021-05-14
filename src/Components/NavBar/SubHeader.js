@@ -6,6 +6,7 @@ import decode from 'jwt-decode';
 import useStyles from './stylesNavBar';
 import SmallButton from '../Buttons/SmallButton/SmallButton'
 import { LOGOUT } from '../../Constants/actionTypes';
+import ToggleTheme from '../../themes/ThemeComponents/ToggleTheme'
 
 const SubHeader = () => {
 
@@ -55,6 +56,7 @@ const SubHeader = () => {
     ) : (
       <Link to='/auth' style={{textDecoration: 'none'}}><SmallButton name='Sign in/ Sign up'/></Link>     
     )}
+      <ToggleTheme/>
     </Toolbar>
   );
 };
