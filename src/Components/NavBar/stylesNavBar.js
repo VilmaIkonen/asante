@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core';
 
 export default makeStyles((theme) => ({
   appBar: {
-    backgroundColor: theme.palette.fourth.main
+    backgroundColor: theme.palette.bg.main
   },
   brandContainer: {
     display: 'flex',

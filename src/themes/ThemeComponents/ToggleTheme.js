@@ -1,10 +1,14 @@
 import React, { useContext } from 'react';
 import { ToggleButton, ToggleButtonGroup } from '@material-ui/lab';
 import { CustomThemeContext } from './CustomThemeProvider';
+import useStyles from './stylesToggleBtn'
 
 export default function ThemeToggle() {
 
+	const classes = useStyles()
+
 	const { currentTheme, setTheme } = useContext(CustomThemeContext);
+
 	const isDefault = Boolean(currentTheme === 'themeBreeze');
 
 	const handleThemeChange = (event, newTheme) => {
@@ -18,11 +22,12 @@ export default function ThemeToggle() {
 
 	return (
 		<ToggleButtonGroup
+			
 			value={currentTheme}
 			exclusive
-			size='small'
+			size='small' className={classes.togglebtn}
 			onChange={handleThemeChange}>
-			<ToggleButton value='themeSoft'>
+			<ToggleButton value='themeSoft' style={{border: 'none'}}>
 				{'Change theme'}
 			</ToggleButton>
 			{/* <ToggleButton value='themeDark'>

@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     fontSize: '1rem'
   },
   input: {
-    backgroundColor: theme.palette.fourth.main,
+    backgroundColor: theme.palette.bg.main,
     borderRadius: '10px',
     border: 'none',
     margin: '.5rem 0 1rem 0',
