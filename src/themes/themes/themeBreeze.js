@@ -5,6 +5,7 @@ const themeBreeze = createMuiTheme({
     primary: {
       main: '#459a8e',
       light: '#a2cdc7',
+      light2: '#daebe8',
       dark: '#306c63'           
     },
     secondary: {
@@ -17,7 +18,7 @@ const themeBreeze = createMuiTheme({
       light: '#357a77',
       dark: '#024744'      
     },
-    fourth: {
+    bg: {
       main: '#fafafa',
       dark: '#dedede'      
     },
