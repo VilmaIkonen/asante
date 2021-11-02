@@ -1,36 +1,36 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-const themeSoft = createMuiTheme({
+const themeBreeze = createMuiTheme({
   palette: {
     primary: {
-      main: '#1f3961',
-      light: '#7988a0',
-      light2: '#bcc4d0',
-      dark: '#192e4e'            
+      main: '#887492',
+      light: '#a2cdc7',
+      light2: '#daebe8',
+      dark: '#306c63'           
     },
     secondary: {
-      main: '#ffc3bc',
-      light: '#ffc3bc',
-      dark: '#ffc3bc'
+      main: '#d7f7fc',
+      light: '#dff9fd',
+      dark: '#acc6ca'       
     },
     third: {
-      main: '#18133e',
-      light: '#18133e',
-      dark: '#18133e'      
+      main: '#025955',
+      light: '#357a77',
+      dark: '#024744'      
     },
     bg: {
-      main: '#fafafa',
-      dark: '#dedede'
+      main: '#434B57',
+      dark: '#1B1E22'      
     },
     light: {
       main: '#ffffff'
     },
     dark: {
-      main: '#16132c' 
+      main: '#013230' 
     },
     accent: {
-      main: '#000000'
-    }
+      main: '#92025d'
+    }  
   },
   typography: {
     fontFamily: {
@@ -78,4 +78,4 @@ const themeSoft = createMuiTheme({
   }
 }); 
 
-export default themeSoft
+export default themeBreeze

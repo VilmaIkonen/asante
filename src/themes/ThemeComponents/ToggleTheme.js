@@ -28,11 +28,11 @@ export default function ThemeToggle() {
 			size='small' className={classes.togglebtn}
 			onChange={handleThemeChange}>
 			<ToggleButton value='themeSoft' style={{border: 'none'}}>
-				{'Change theme'}
+				<i className="fas fa-feather"></i>
 			</ToggleButton>
-			{/* <ToggleButton value='themeDark'>
-			{'Change to theme "Dark"'}
-			</ToggleButton> */}
+			<ToggleButton value='themeDark'>
+			<i className="fas fa-cloud-moon"></i>
+			</ToggleButton>
 		</ToggleButtonGroup>
 	);
 }
