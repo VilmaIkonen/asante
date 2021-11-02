@@ -19,8 +19,8 @@ export default function SignIn() {
   const history = useHistory();
 
   const [inputs] = useState([
-    { id:'email', label:'Email',  name:'email', type:'email', autoFocus: 'true' },
-    { id:'password', label:'Password',  name:'password', type:'password', autoFocus: 'false' },
+    { id:'email', label:'Email',  name:'email', type:'email', autoFocus: true },
+    { id:'password', label:'Password',  name:'password', type:'password', autoFocus: false },
   ])
 
   // Form submission:

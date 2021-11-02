@@ -20,11 +20,11 @@ const SignUp = () => {
   const [error, setError] = useState([])
 
   const [inputs] = useState([
-    { id:'firstname', label:'First name',  name:'firstname', type:'text', autoFocus: 'true' },
-    { id:'lastname', label:'Last name',  name:'lastname', type:'text', autoFocus: 'false' },
-    { id:'email', label:'Email',  name:'email', type:'email', autoFocus: 'false' },
-    { id:'password', label:'Password',  name:'password', type:'password', autoFocus: 'false' },
-    { id:'confirmPassword', label:'Confirm password',  name:'confirmPassword', type:'password', autoFocus: 'false' }
+    { id:'firstname', label:'First name',  name:'firstname', type:'text', autoFocus: true },
+    { id:'lastname', label:'Last name',  name:'lastname', type:'text', autoFocus: false },
+    { id:'email', label:'Email',  name:'email', type:'email', autoFocus: false },
+    { id:'password', label:'Password',  name:'password', type:'password', autoFocus: false },
+    { id:'confirmPassword', label:'Confirm password',  name:'confirmPassword', type:'password', autoFocus: false }
   ])
 
   const handleSubmit = (event) => {
